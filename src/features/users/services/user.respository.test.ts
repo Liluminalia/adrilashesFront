@@ -1,4 +1,3 @@
-import { ModuleKind } from 'typescript';
 import { UserRepository } from './user.repository';
 
 describe('Given UserRepository Service', () => {

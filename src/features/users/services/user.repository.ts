@@ -6,7 +6,6 @@ export class UserRepository implements RepositoryUsers<UserI> {
     constructor(url = '') {
         this.url = 'https://adrilashes.onrender.com/users';
     }
-
     getAllUsers(): Promise<Array<UserI>> {
         return fetch(this.url)
             .then((response) => {
@@ -25,7 +24,6 @@ export class UserRepository implements RepositoryUsers<UserI> {
                 return error;
             });
     }
-
     register(user: Partial<UserI>): Promise<UserI> {
         return fetch(`${this.url}/register`, {
             method: 'POST',
@@ -56,7 +54,6 @@ export class UserRepository implements RepositoryUsers<UserI> {
                 return error;
             });
     }
-
     updateUserAppointment(
         treatmentId: string,
         userId: string,
