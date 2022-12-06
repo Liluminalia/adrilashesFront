@@ -117,7 +117,7 @@ describe('Given TreatmentRepository Service', () => {
                     .fn()
                     .mockResolvedValue('Tu Tratamiento ha sido eliminado'),
             });
-            const result = await service.delete(mockTreatment.id);
+            const result = service.delete(mockTreatment.id);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual('Tu Tratamiento ha sido eliminado');
         });
@@ -127,7 +127,7 @@ describe('Given TreatmentRepository Service', () => {
                 status: 400,
                 statusText: 'error',
             });
-            await service.delete(mockTreatment.id);
+            service.delete(mockTreatment.id);
 
             expect(error).toBeInstanceOf(Error);
         });

@@ -99,9 +99,6 @@ describe('Given UserRepository Service', () => {
                 name: 'string',
                 password: 'string',
             };
-            const mockToken =
-                '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGY2NDgwZjMxMWY5NzIzMTBlMGQwNSIsIm5hbWUiOiJhbmFJc2FiZWwiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3MDM0ODU4MH0.ddXpshwpKA_t-iZDFQMez0VG5DpWLf3M4mD2ivFmys4"';
-
             global.fetch = jest.fn().mockResolvedValue({
                 ok: false,
                 json: jest.fn().mockRejectedValue(Error),
