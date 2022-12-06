@@ -2,6 +2,20 @@ import { UserRepository } from './user.repository';
 
 describe('Given UserRepository Service', () => {
     describe('When we instantiate it', () => {
+        const mockUser = {
+            id: '54321',
+            name: 'string',
+            email: 'string',
+            password: 'string',
+        };
+        const mockTreatment = {
+            id: '635241',
+            title: 'string',
+            img: 'string',
+            description: 'string',
+            price: 15,
+            time: 64,
+        };
         let service: UserRepository;
         const error = new Error('error');
         beforeEach(() => {
@@ -30,11 +44,6 @@ describe('Given UserRepository Service', () => {
         });
         test(`Then if I use service.getOneUser() 
             it should return a Promise of an Array of User`, async () => {
-            const mockUser = {
-                id: '54321',
-                name: 'string',
-                email: 'string',
-            };
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
                 json: jest.fn().mockResolvedValue(mockUser),
@@ -54,10 +63,6 @@ describe('Given UserRepository Service', () => {
             expect(error).toBeInstanceOf(Error);
         });
         test('then if i use service.register() it should return a Promise of the registered user', async () => {
-            const mockUser = {
-                name: 'string',
-                password: 'string',
-            };
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
                 json: jest.fn().mockResolvedValue(mockUser),
@@ -67,10 +72,6 @@ describe('Given UserRepository Service', () => {
             expect(result).toEqual(mockUser);
         });
         test('Then when something is not ok, if I use service.register() it should throw an error', async () => {
-            const mockUser = {
-                name: 'string',
-                password: 'string',
-            };
             global.fetch = jest.fn().mockResolvedValue({
                 ok: false,
                 json: jest.fn().mockRejectedValue(Error),
@@ -80,10 +81,6 @@ describe('Given UserRepository Service', () => {
             expect(error).toBeInstanceOf(Error);
         });
         test('then if i use service.login() it should return a token', async () => {
-            const mockUser = {
-                name: 'string',
-                password: 'string',
-            };
             const mockToken =
                 '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGY2NDgwZjMxMWY5NzIzMTBlMGQwNSIsIm5hbWUiOiJhbmFJc2FiZWwiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3MDM0ODU4MH0.ddXpshwpKA_t-iZDFQMez0VG5DpWLf3M4mD2ivFmys4"';
             global.fetch = jest.fn().mockResolvedValue({
@@ -95,10 +92,6 @@ describe('Given UserRepository Service', () => {
             expect(result).toEqual(mockToken);
         });
         test('Then when something is not ok, if I use service.login() it should throw an error', async () => {
-            const mockUser = {
-                name: 'string',
-                password: 'string',
-            };
             global.fetch = jest.fn().mockResolvedValue({
                 ok: false,
                 json: jest.fn().mockRejectedValue(Error),
@@ -109,15 +102,7 @@ describe('Given UserRepository Service', () => {
         });
         test(`Then if I use service.addUserAppointment() 
             it should return a User`, async () => {
-            const mockTreatment = {
-                id: '635241',
-                title: 'string',
-                img: 'string',
-                description: 'string',
-                price: 15,
-                time: 64,
-            };
-            const mockUser = {
+            const userMock = {
                 id: '54321',
                 name: 'string',
                 email: 'string',
@@ -125,11 +110,11 @@ describe('Given UserRepository Service', () => {
             };
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
-                json: jest.fn().mockResolvedValue(mockUser),
+                json: jest.fn().mockResolvedValue(userMock),
             });
             const result = await service.addUserAppointment(mockTreatment.id);
             expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual(mockUser);
+            expect(result).toEqual(userMock);
         });
         test(`Then when something is not ok, if I use service.addUserAppointment() it should throw an error`, async () => {
             global.fetch = jest.fn().mockResolvedValue({
@@ -143,14 +128,6 @@ describe('Given UserRepository Service', () => {
         });
         test(`Then if I use service.updateUserAppointment() 
             it should return a User`, async () => {
-            const mockTreatment = {
-                id: '635241',
-                title: 'string',
-                img: 'string',
-                description: 'string',
-                price: 15,
-                time: 64,
-            };
             const mockUser = {
                 id: '54321',
                 name: 'string',
@@ -181,15 +158,7 @@ describe('Given UserRepository Service', () => {
         });
         test(`Then if I use service.deleteUserAppointment() 
             it should return a User`, async () => {
-            const mockTreatment = {
-                id: '635241',
-                title: 'string',
-                img: 'string',
-                description: 'string',
-                price: 15,
-                time: 64,
-            };
-            const mockUser = {
+            const mockUserEmptyTreatment = {
                 id: '54321',
                 name: 'string',
                 email: 'string',
@@ -197,14 +166,14 @@ describe('Given UserRepository Service', () => {
             };
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
-                json: jest.fn().mockResolvedValue(mockUser),
+                json: jest.fn().mockResolvedValue(mockUserEmptyTreatment),
             });
             const result = await service.deleteUserAppointment(
                 mockTreatment.id,
-                mockUser.id
+                mockUserEmptyTreatment.id
             );
             expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual(mockUser);
+            expect(result).toEqual(mockUserEmptyTreatment);
         });
         test(`Then when something is not ok, if I use service.deleteUserAppointment() it should throw an error`, async () => {
             global.fetch = jest.fn().mockResolvedValue({
