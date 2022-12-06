@@ -1,9 +1,13 @@
 export interface RepositoryUsers<T> {
     getAllUsers: () => Promise<Array<T>>;
-    getOneUser?: (item: Partial<T>) => Promise<T>;
+    getOneUser?: (id: string) => Promise<T>;
     register: (item: Partial<T>) => Promise<T>;
     login: (item: Partial<T>) => Promise<T>;
-    updateUserAppointment: (item: Partial<T>) => Promise<T>;
-    addUserAppointment: (item: Partial<T>) => Promise<T>;
-    deleteUserAppointment: (item: Partial<T>) => Promise<T>;
+    updateUserAppointment: (
+        treatmentId: string,
+        userId: string,
+        discount: string
+    ) => Promise<T>;
+    addUserAppointment: (treatmentId: string) => Promise<T>;
+    deleteUserAppointment: (treatmentId: string, userId: string) => Promise<T>;
 }
