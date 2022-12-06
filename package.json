@@ -47,6 +47,13 @@
     "prettier": {
         "singleQuote": true
     },
+    "jest": {
+        "coveragePathIgnorePatterns": [
+            "<rootDir>/src/reportWebVitals.ts",
+            "<rootDir>/src/index.ts",
+            "<rootDir>/src/tools/debug.ts"
+        ]
+    },
     "browserslist": {
         "production": [
             ">0.2%",

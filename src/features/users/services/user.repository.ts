@@ -41,7 +41,7 @@ export class UserRepository implements RepositoryUsers<UserI> {
                 return error;
             });
     }
-    login(user: Partial<UserI>): Promise<UserI> {
+    login(user: Partial<UserI>): Promise<string> {
         return fetch(`${this.url}/login`, {
             method: 'POST',
             body: JSON.stringify(user),
@@ -76,7 +76,7 @@ export class UserRepository implements RepositoryUsers<UserI> {
             });
     }
     addUserAppointment(treatmentId: string): Promise<UserI> {
-        return fetch(`${this.url}/${treatmentId}`, {
+        return fetch(`${this.url}/appointments/add/${treatmentId}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
