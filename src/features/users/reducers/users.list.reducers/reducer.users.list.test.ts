@@ -44,6 +44,24 @@ describe('When the action is updateAppointment', () => {
         const result = userReducer(state, action);
         expect(result[0]).toEqual(action.payload);
     });
+    test('Then if is not the same id, the returned state should include the user not updated', () => {
+        const updatedMock = {
+            id: '222',
+            name: 'aaa',
+            email: 'aaa',
+            phone: 'aaa',
+            role: 'user',
+            isVip: true,
+            appointments: ['appointment updated'],
+        };
+        action = {
+            type: actionTypes.updateAppointment,
+            payload: updatedMock,
+        };
+        state = [userMock];
+        const result = userReducer(state, action);
+        expect(result[0]).toEqual(state[0]);
+    });
 });
 describe('When the action is deleteAppointment', () => {
     test('Then the returned state should include the action payload', () => {
@@ -54,5 +72,18 @@ describe('When the action is deleteAppointment', () => {
         state = [userMock];
         const result = userReducer(state, action);
         expect(result).toStrictEqual([]);
+    });
+});
+describe('When the action is any other', () => {
+    beforeEach(() => {
+        action = {
+            type: '',
+            payload: null,
+        };
+        state = [userMock];
+    });
+    test('Then the returned state should be ...', () => {
+        const result = userReducer(state, action);
+        expect(result).toEqual(state);
     });
 });
