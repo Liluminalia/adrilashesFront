@@ -15,77 +15,142 @@ describe('Given the function userReducer', () => {
     };
 
     let action: { type: string; payload: unknown };
-    let state: Array<UserI>;
-    describe('When the action is load', () => {
-        beforeEach(() => {
+    let state: {
+        user: UserI | null;
+        token: string | null;
+        isLogged: boolean;
+        isLogging: boolean;
+        role: 'admin' | 'user' | null;
+    };
+    describe('When the action is login', () => {
+        test('Then the returned state should be the action payload', () => {
             action = {
-                type: actionTypes.load,
+                type: actionTypes.login,
                 payload: [userMock],
             };
-            state = [];
+            state = {
+                user: null,
+                token: null,
+                isLogged: false,
+                isLogging: true,
+                role: null,
+            };
+
+            const result = userReducer(state, action);
+            expect(result.isLogging).toBe(true);
         });
-        test('Then the returned state should be the action payload', () => {
+    });
+    describe('When the action is logged', () => {
+        test('Then the returned state should include the action payload', () => {
+            action = {
+                type: actionTypes.logged,
+                payload: {
+                    user: userMock,
+                    token: 'token',
+                    isLogged: true,
+                    isLogging: false,
+                    role: 'user',
+                },
+            };
+            state = {
+                user: null,
+                token: null,
+                isLogged: false,
+                isLogging: true,
+                role: 'user',
+            };
+            const result = userReducer(state, action);
+            expect(result).toEqual(action.payload);
+        });
+    });
+    describe('When the action is logout', () => {
+        test('Then the returned state should include the action payload', () => {
+            action = {
+                type: actionTypes.logout,
+                payload: {
+                    user: null,
+                    token: null,
+                    isLogged: false,
+                    isLogging: false,
+                    role: null,
+                },
+            };
+            state = {
+                user: userMock,
+                isLogged: false,
+                isLogging: false,
+                token: 'token',
+                role: null,
+            };
             const result = userReducer(state, action);
             expect(result).toEqual(action.payload);
         });
     });
 
-    describe('When the action is add', () => {
-        beforeEach(() => {
-            action = {
-                type: actionTypes.add,
-                payload: userMock,
-            };
-            state = [];
-        });
+    describe('When the action is updateAppointment', () => {
         test('Then the returned state should include the action payload', () => {
-            const result = userReducer(state, action);
-            expect(result).toContainEqual(action.payload);
-        });
-    });
-
-    describe('When the action is update', () => {
-        beforeEach(() => {
             action = {
-                type: actionTypes.update,
-                payload: { ...userMock, title: 'Update user' },
-            };
-            state = [userMock];
-        });
-        test('Then the returned state should include the action payload', () => {
-            const result = userReducer(state, action);
-            expect(result).toContainEqual(action.payload);
-        });
-    });
-
-    describe('When the action is update and the id is not valid', () => {
-        beforeEach(() => {
-            action = {
-                type: actionTypes.update,
+                type: actionTypes.updateAppointment,
                 payload: {
-                    ...userMock,
-                    id: '2',
-                    title: 'Update user',
+                    user: {
+                        ...userMock,
+                        appointments: [{ treatmentId: { discount: 50 } }],
+                    },
                 },
             };
-            state = [userMock];
-        });
-        test('Then the returned state should be the original state', () => {
+            state = {
+                user: userMock,
+                token: 'token',
+                isLogged: true,
+                isLogging: false,
+                role: 'admin',
+            };
             const result = userReducer(state, action);
-            expect(result).toEqual(state);
+            expect(result.user).toEqual(action.payload);
         });
     });
-    describe('When the action is any other', () => {
-        beforeEach(() => {
+    describe('When the action is addAppointment', () => {
+        test('Then the returned state should include the action payload', () => {
             action = {
-                type: '',
-                payload: null,
+                type: actionTypes.addAppointment,
+                payload: {
+                    user: {
+                        ...userMock,
+                        appointments: [{ treatmentId: '' }],
+                    },
+                },
             };
-            state = [userMock];
-        });
-        test('Then the returned state should be the original state', () => {
+            state = {
+                user: userMock,
+                token: 'token',
+                isLogged: true,
+                isLogging: false,
+                role: 'admin',
+            };
             const result = userReducer(state, action);
-            expect(result).toEqual(state);
+            expect(result.user).toEqual(action.payload);
+        });
+    });
+    describe('When the action is deleteAppointment', () => {
+        test('Then the returned state should include the action payload', () => {
+            action = {
+                type: actionTypes.deleteAppointment,
+                payload: {
+                    user: {
+                        ...userMock,
+                        appointments: [],
+                    },
+                },
+            };
+            state = {
+                user: userMock,
+                token: 'token',
+                isLogged: true,
+                isLogging: false,
+                role: 'admin',
+            };
+            const result = userReducer(state, action);
+            expect(result.user).toEqual(action.payload);
         });
     });
 });

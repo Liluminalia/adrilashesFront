@@ -1,5 +1,8 @@
 export const actionTypes = {
-    add: 'users@add',
-    update: 'users@update',
-    load: 'user@load',
+    login: 'user@login',
+    logged: 'user@logged',
+    logout: 'user@logout',
+    addAppointment: 'user@addAppointment',
+    deleteAppointment: 'user@deleteAppointment',
+    updateAppointment: 'user@updateAppointment',
 };

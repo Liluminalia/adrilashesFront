@@ -2,8 +2,17 @@ import { createAction } from '@reduxjs/toolkit';
 import { UserI } from '../models/users';
 import { actionTypes } from './action.types';
 
-export const loadActionCreator = createAction<Array<UserI>>(actionTypes.load);
-
-export const addActionCreator = createAction<UserI>(actionTypes.add);
-
-export const updateActionCreator = createAction<UserI>(actionTypes.update);
+export const loginActionCreator = createAction<void>(actionTypes.login);
+export const loggedActionCreator = createAction<{ user: UserI; token: string }>(
+    actionTypes.logged
+);
+export const logoutActionCreator = createAction<void>(actionTypes.logout);
+export const addAppointmentActionCreator = createAction<UserI>(
+    actionTypes.addAppointment
+);
+export const deleteAppointmentActionCreator = createAction<UserI>(
+    actionTypes.deleteAppointment
+);
+export const updateAppointmentActionCreator = createAction<UserI>(
+    actionTypes.updateAppointment
+);

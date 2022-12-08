@@ -64,6 +64,7 @@ export class UserRepository implements RepositoryUsers<UserI> {
             headers: {
                 'content-type': 'application/json',
             },
+            // authorization :
         })
             .then((response) => {
                 return response.json();
