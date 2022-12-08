@@ -13,7 +13,9 @@ export const useTreatments = () => {
     useEffect(() => {
         repositoryTreatment
             .getAllTreatments()
-            .then((treatments) => dispatcher(ac.loadActionCreator(treatments)));
+            .then((treatments) =>
+                dispatcher(ac.getAllActionCreator(treatments))
+            );
     }, [repositoryTreatment, dispatcher]);
 
     const handleAddTreatment = (newTreatment: Partial<TreatmentI>) => {
