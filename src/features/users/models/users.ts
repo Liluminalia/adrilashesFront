@@ -12,7 +12,7 @@ export type ProtoUserI = {
 
 export type Appointment = {
     _id: TreatmentI;
-    treatmentId: TreatmentI;
+    // treatmentId: TreatmentI;
     date?: Date;
     discount?: number;
 };
