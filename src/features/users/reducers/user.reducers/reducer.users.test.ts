@@ -1,6 +1,6 @@
 import { userReducer } from './reducer.users';
 import { actionTypes } from './action.types';
-import { UserI } from '../models/users';
+import { UserI } from '../../models/users';
 
 describe('Given the function userReducer', () => {
     const userMock: UserI = {
@@ -87,28 +87,6 @@ describe('Given the function userReducer', () => {
         });
     });
 
-    describe('When the action is updateAppointment', () => {
-        test('Then the returned state should include the action payload', () => {
-            action = {
-                type: actionTypes.updateAppointment,
-                payload: {
-                    user: {
-                        ...userMock,
-                        appointments: [{ treatmentId: { discount: 50 } }],
-                    },
-                },
-            };
-            state = {
-                user: userMock,
-                token: 'token',
-                isLogged: true,
-                isLogging: false,
-                role: 'admin',
-            };
-            const result = userReducer(state, action);
-            expect(result.user).toEqual(action.payload);
-        });
-    });
     describe('When the action is addAppointment', () => {
         test('Then the returned state should include the action payload', () => {
             action = {
@@ -117,28 +95,6 @@ describe('Given the function userReducer', () => {
                     user: {
                         ...userMock,
                         appointments: [{ treatmentId: '' }],
-                    },
-                },
-            };
-            state = {
-                user: userMock,
-                token: 'token',
-                isLogged: true,
-                isLogging: false,
-                role: 'admin',
-            };
-            const result = userReducer(state, action);
-            expect(result.user).toEqual(action.payload);
-        });
-    });
-    describe('When the action is deleteAppointment', () => {
-        test('Then the returned state should include the action payload', () => {
-            action = {
-                type: actionTypes.deleteAppointment,
-                payload: {
-                    user: {
-                        ...userMock,
-                        appointments: [],
                     },
                 },
             };

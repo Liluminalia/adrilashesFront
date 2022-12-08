@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { UserI } from '../models/users';
+import { UserI } from '../../models/users';
 import * as ac from './action.creators';
 
 const initialState: {
@@ -33,14 +33,6 @@ export const userReducer = createReducer(initialState, (builder) => {
     }));
     builder.addCase(ac.logoutActionCreator, (_state, action) => action.payload);
     builder.addCase(ac.addAppointmentActionCreator, (state, action) => ({
-        ...state,
-        user: action.payload,
-    }));
-    builder.addCase(ac.deleteAppointmentActionCreator, (state, action) => ({
-        ...state,
-        user: action.payload,
-    }));
-    builder.addCase(ac.updateAppointmentActionCreator, (state, action) => ({
         ...state,
         user: action.payload,
     }));

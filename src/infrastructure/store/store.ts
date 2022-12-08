@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { treatmentReducer } from '../../features/treatments/reducers/reducer.treatments';
-import { userReducer } from '../../features/users/reducers/reducer.users';
+import { userReducer } from '../../features/users/reducers/user.reducers/reducer.users';
 
 export const appStore = configureStore({
     reducer: {

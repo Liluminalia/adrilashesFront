@@ -3,6 +3,4 @@ export const actionTypes = {
     logged: 'user@logged',
     logout: 'user@logout',
     addAppointment: 'user@addAppointment',
-    deleteAppointment: 'user@deleteAppointment',
-    updateAppointment: 'user@updateAppointment',
 };
