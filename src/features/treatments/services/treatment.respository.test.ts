@@ -56,25 +56,25 @@ describe('Given TreatmentRepository Service', () => {
 
             expect(error).toBeInstanceOf(Error);
         });
-        test('then if i use service.post() it should return a Promise of the created treatment', async () => {
+        test('then if i use service.addTreatment() it should return a Promise of the created treatment', async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
                 json: jest.fn().mockResolvedValue(mockTreatment),
             });
-            const result = await service.post(mockTreatment);
+            const result = await service.addTreatment(mockTreatment);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual(mockTreatment);
         });
-        test('Then when something is not ok, if I use service.post() it should throw an error', async () => {
+        test('Then when something is not ok, if I use service.addTreatment() it should throw an error', async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 ok: false,
                 json: jest.fn().mockRejectedValue(Error),
             });
-            await service.post(mockTreatment);
+            await service.addTreatment(mockTreatment);
             expect(fetch).toHaveBeenCalled();
             expect(error).toBeInstanceOf(Error);
         });
-        test(`Then if I use service.patch() 
+        test(`Then if I use service.updateTreatment() 
             it should return a Treatment`, async () => {
             const updatedMock = {
                 price: 123,
@@ -91,11 +91,14 @@ describe('Given TreatmentRepository Service', () => {
                 ok: true,
                 json: jest.fn().mockResolvedValue(updatedMockTreatment),
             });
-            const result = await service.patch(updatedMock, mockTreatment.id);
+            const result = await service.updateTreatment(
+                updatedMock,
+                mockTreatment.id
+            );
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual(updatedMockTreatment);
         });
-        test(`Then when something is not ok, if I use service.patch() it should throw an error`, async () => {
+        test(`Then when something is not ok, if I use service.updateTreatment() it should throw an error`, async () => {
             const updatedMock = {
                 price: 123,
             };
@@ -104,30 +107,28 @@ describe('Given TreatmentRepository Service', () => {
                 status: 400,
                 statusText: 'error',
             });
-            await service.patch(updatedMock, mockTreatment.id);
+            await service.updateTreatment(updatedMock, mockTreatment.id);
 
             expect(error).toBeInstanceOf(Error);
         });
 
-        test(`Then if I use service.delete() 
-            it should return a "Tu Tratamiento ha sido eliminado"`, async () => {
+        test(`Then if I use service.deleteTreatment() 
+            it should return an empty object`, async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
-                json: jest
-                    .fn()
-                    .mockResolvedValue('Tu Tratamiento ha sido eliminado'),
+                json: jest.fn().mockResolvedValue(mockTreatment),
             });
-            const result = service.delete(mockTreatment.id);
+            const result = await service.deleteTreatment(mockTreatment.id);
             expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual('Tu Tratamiento ha sido eliminado');
+            expect(result).toBe(mockTreatment);
         });
-        test(`Then when something is not ok, if I use service.delete() it should throw an error`, async () => {
+        test(`Then when something is not ok, if I use service.deleteTreatment() it should throw an error`, async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 ok: false,
                 status: 400,
                 statusText: 'error',
             });
-            service.delete(mockTreatment.id);
+            service.deleteTreatment(mockTreatment.id);
 
             expect(error).toBeInstanceOf(Error);
         });
