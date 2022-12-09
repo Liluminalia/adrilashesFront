@@ -7,7 +7,7 @@ import CreateTreatmentPage from '../pages/user.admin/treatments/create.treatment
 import EditTreatmentPage from '../pages/user.admin/treatments/edit.treatment/edit.treatment.page';
 import LoginPage from '../pages/user/login/login.page';
 import MakeAppointmentPage from '../pages/user/make.appointment/make.appointment.page';
-import AppointmentsPage from '../pages/user/make.appointment/make.appointment.page';
+import AppointmentsPage from '../pages/user.admin/appointments/appointments.page';
 
 export function AppRoutes() {
     return (
