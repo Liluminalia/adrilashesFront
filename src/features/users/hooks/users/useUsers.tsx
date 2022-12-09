@@ -9,7 +9,7 @@ import * as ac from '../../reducers/user.reducers/action.creators';
 import { UserRepository } from '../../services/user.repository';
 
 export const useUsers = () => {
-    const users = useAppSelector((state: RootState) => state.users);
+    const user = useAppSelector((state: RootState) => state.users);
     const dispatcher = useAppDispatch();
     const repositoryUser = useMemo(() => new UserRepository(), []);
 
@@ -28,7 +28,7 @@ export const useUsers = () => {
     };
 
     return {
-        users,
+        user,
         handleLogin,
         handleAddAppointment,
     };
