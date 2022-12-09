@@ -24,42 +24,61 @@ export function AppRoutes() {
             ></Route>
             <Route path="Details" element={<DetailsPage></DetailsPage>}></Route>
             <Route path="Login" element={<LoginPage></LoginPage>}></Route>
-            <PrivateRoute>
-                <Route
-                    path="MakeAppointment"
-                    element={<MakeAppointmentPage></MakeAppointmentPage>}
-                ></Route>
-            </PrivateRoute>
-            <AdminRoute>
-                <Route
-                    path="HomeAdmin"
-                    element={<HomeAdminPage></HomeAdminPage>}
-                ></Route>
-            </AdminRoute>
-            <AdminRoute>
-                <Route
-                    path="Appointments"
-                    element={<AppointmentsPage></AppointmentsPage>}
-                ></Route>
-            </AdminRoute>
-            <AdminRoute>
-                <Route
-                    path="Treatments"
-                    element={<TreatmentsPage></TreatmentsPage>}
-                ></Route>
-            </AdminRoute>
-            <AdminRoute>
-                <Route
-                    path="CreateTreatment"
-                    element={<CreateTreatmentPage></CreateTreatmentPage>}
-                ></Route>
-            </AdminRoute>
-            <AdminRoute>
-                <Route
-                    path="EditTreatment"
-                    element={<EditTreatmentPage></EditTreatmentPage>}
-                ></Route>
-            </AdminRoute>
+
+            <Route
+                path="MakeAppointment"
+                element={
+                    <PrivateRoute>
+                        <MakeAppointmentPage></MakeAppointmentPage>
+                    </PrivateRoute>
+                }
+            ></Route>
+
+            <Route
+                path="HomeAdmin"
+                element={
+                    <AdminRoute>
+                        <HomeAdminPage></HomeAdminPage>
+                    </AdminRoute>
+                }
+            ></Route>
+
+            <Route
+                path="Appointments"
+                element={
+                    <AdminRoute>
+                        <AppointmentsPage></AppointmentsPage>
+                    </AdminRoute>
+                }
+            ></Route>
+
+            <Route
+                path="Treatments"
+                element={
+                    <AdminRoute>
+                        <TreatmentsPage></TreatmentsPage>
+                    </AdminRoute>
+                }
+            ></Route>
+
+            <Route
+                path="CreateTreatment"
+                element={
+                    <AdminRoute>
+                        <CreateTreatmentPage></CreateTreatmentPage>
+                    </AdminRoute>
+                }
+            ></Route>
+
+            <Route
+                path="EditTreatment"
+                element={
+                    <AdminRoute>
+                        <EditTreatmentPage></EditTreatmentPage>
+                    </AdminRoute>
+                }
+            ></Route>
+
             <Route path="" element={<HomePage></HomePage>}></Route>
             <Route path="*" element={<Navigate replace to="" />}></Route>
             <Route path="*" element={<h1>No se encontró la ruta</h1>}></Route>

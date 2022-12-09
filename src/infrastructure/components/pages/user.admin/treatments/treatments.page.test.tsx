@@ -5,7 +5,7 @@ import TreatmentsPage from './treatments.page';
 
 describe('Given treatments page', () => {
     describe('When we render the page', () => {
-        test('Then it should display "treatments page"', () => {
+        test('Then it should display "Treatments page"', () => {
             render(
                 <>
                     <Router>
@@ -13,7 +13,7 @@ describe('Given treatments page', () => {
                     </Router>
                 </>
             );
-            const element = screen.getByText(/treatments page/i);
+            const element = screen.getByText(/Treatments page/i);
             expect(element).toBeInTheDocument();
         });
     });
