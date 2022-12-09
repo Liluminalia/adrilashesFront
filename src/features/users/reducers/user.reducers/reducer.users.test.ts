@@ -7,7 +7,6 @@ describe('Given the function userReducer', () => {
         id: '111',
         name: 'aaa',
         email: 'aaa',
-        password: '34',
         phone: 'aaa',
         role: 'user',
         isVip: true,

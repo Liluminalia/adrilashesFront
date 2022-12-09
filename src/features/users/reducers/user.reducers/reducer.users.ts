@@ -17,14 +17,14 @@ const initialState: {
 };
 
 export const userReducer = createReducer(initialState, (builder) => {
-    builder.addCase(ac.loginActionCreator, (state, _action) => ({
+    builder.addCase(ac.spinnerActionCreator, (state, _action) => ({
         ...state,
         isLogged: false,
         isLogging: true,
         user: null,
         token: null,
     }));
-    builder.addCase(ac.loggedActionCreator, (state, action) => ({
+    builder.addCase(ac.loginActionCreator, (state, action) => ({
         ...state,
         isLogged: true,
         isLogging: false,
