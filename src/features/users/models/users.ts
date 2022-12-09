@@ -3,7 +3,6 @@ import { TreatmentI } from '../../treatments/models/treatments';
 export type ProtoUserI = {
     name?: string;
     email?: string;
-    password?: string;
     phone?: string;
     role?: 'admin' | 'user';
     isVip?: boolean;
@@ -21,7 +20,6 @@ export type UserI = {
     id: string;
     name: string;
     email: string;
-    password: string;
     phone: string;
     role: 'admin' | 'user';
     isVip: boolean;

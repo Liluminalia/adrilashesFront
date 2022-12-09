@@ -24,7 +24,7 @@ export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
                 return error;
             });
     }
-    post(treatment: Partial<TreatmentI>): Promise<TreatmentI> {
+    addTreatment(treatment: Partial<TreatmentI>): Promise<TreatmentI> {
         return fetch(`${this.url}/create`, {
             method: 'POST',
             body: JSON.stringify(treatment),
@@ -40,7 +40,7 @@ export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
             });
     }
 
-    patch(
+    updateTreatment(
         treatment: Partial<TreatmentI>,
         treatmentId: string
     ): Promise<TreatmentI> {
@@ -58,9 +58,9 @@ export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
                 return error;
             });
     }
-    delete(treatmentId: string): string {
-        fetch(`${this.url}/delete/${treatmentId}`, {
-            method: 'PATCH',
+    deleteTreatment(treatmentId: string): Promise<void> {
+        return fetch(`${this.url}/delete/${treatmentId}`, {
+            method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
             },
@@ -71,6 +71,5 @@ export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
             .catch((error) => {
                 return error;
             });
-        return 'Tu Tratamiento ha sido eliminado';
     }
 }

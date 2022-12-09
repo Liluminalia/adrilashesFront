@@ -5,7 +5,7 @@ import * as ac from './action.creators';
 const initialState: Array<TreatmentI> = [];
 
 export const treatmentReducer = createReducer(initialState, (builder) => {
-    builder.addCase(ac.loadActionCreator, (_state, action) => action.payload);
+    builder.addCase(ac.getAllActionCreator, (_state, action) => action.payload);
     builder.addCase(ac.addActionCreator, (state, action) => [
         ...state,
         action.payload,

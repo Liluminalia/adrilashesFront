@@ -14,10 +14,10 @@ describe('Given the function treatmentReducer', () => {
 
     let action: { type: string; payload: unknown };
     let state: Array<TreatmentI>;
-    describe('When the action is load', () => {
+    describe('When the action is getAll', () => {
         beforeEach(() => {
             action = {
-                type: actionTypes.load,
+                type: actionTypes.getAll,
                 payload: [treatmentMock],
             };
             state = [];

@@ -39,7 +39,7 @@ export class UserRepository implements RepositoryUsers<UserI> {
                 return error;
             });
     }
-    login(user: Partial<UserI>): Promise<string> {
+    login(user: Partial<UserI>): Promise<{ token: string; user: UserI }> {
         return fetch(`${this.url}/login`, {
             method: 'POST',
             body: JSON.stringify(user),
