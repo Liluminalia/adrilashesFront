@@ -16,20 +16,17 @@ export function AppRoutes() {
     return (
         <Routes>
             <Route path="Home">
-                <Route index element={<HomePage></HomePage>}></Route>
+                <Route index element={<HomePage />}></Route>
             </Route>
-            <Route
-                path="Register"
-                element={<RegisterPage></RegisterPage>}
-            ></Route>
-            <Route path="Details" element={<DetailsPage></DetailsPage>}></Route>
-            <Route path="Login" element={<LoginPage></LoginPage>}></Route>
+            <Route path="Register" element={<RegisterPage />}></Route>
+            <Route path="Details" element={<DetailsPage />}></Route>
+            <Route path="Login" element={<LoginPage />}></Route>
 
             <Route
                 path="MakeAppointment"
                 element={
                     <PrivateRoute>
-                        <MakeAppointmentPage></MakeAppointmentPage>
+                        <MakeAppointmentPage />
                     </PrivateRoute>
                 }
             ></Route>
@@ -38,7 +35,7 @@ export function AppRoutes() {
                 path="HomeAdmin"
                 element={
                     <AdminRoute>
-                        <HomeAdminPage></HomeAdminPage>
+                        <HomeAdminPage />
                     </AdminRoute>
                 }
             ></Route>
@@ -47,7 +44,7 @@ export function AppRoutes() {
                 path="Appointments"
                 element={
                     <AdminRoute>
-                        <AppointmentsPage></AppointmentsPage>
+                        <AppointmentsPage />
                     </AdminRoute>
                 }
             ></Route>
@@ -56,7 +53,7 @@ export function AppRoutes() {
                 path="Treatments"
                 element={
                     <AdminRoute>
-                        <TreatmentsPage></TreatmentsPage>
+                        <TreatmentsPage />
                     </AdminRoute>
                 }
             ></Route>
@@ -65,7 +62,7 @@ export function AppRoutes() {
                 path="CreateTreatment"
                 element={
                     <AdminRoute>
-                        <CreateTreatmentPage></CreateTreatmentPage>
+                        <CreateTreatmentPage />
                     </AdminRoute>
                 }
             ></Route>
@@ -74,12 +71,12 @@ export function AppRoutes() {
                 path="EditTreatment"
                 element={
                     <AdminRoute>
-                        <EditTreatmentPage></EditTreatmentPage>
+                        <EditTreatmentPage />
                     </AdminRoute>
                 }
             ></Route>
 
-            <Route path="" element={<HomePage></HomePage>}></Route>
+            <Route path="" element={<HomePage />}></Route>
             <Route path="*" element={<Navigate replace to="" />}></Route>
             <Route path="*" element={<h1>No se encontró la ruta</h1>}></Route>
         </Routes>
