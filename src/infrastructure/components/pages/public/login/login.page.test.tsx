@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import LoginPage from './login.page';
+import { LoginPage } from './login.page';
 
 describe('Given Login page', () => {
     describe('When we render the page', () => {

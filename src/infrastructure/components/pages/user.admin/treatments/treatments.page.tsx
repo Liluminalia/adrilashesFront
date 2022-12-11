@@ -1,7 +1,9 @@
-import React from 'react';
+import { TreatmentAdminList } from '../../../../../features/users/components/treatment.admin.list/treatment.admin.list';
 
-function TreatmentPage() {
-    return <main className="main">Treatments page</main>;
+export function TreatmentsPage() {
+    return (
+        <main className="main">
+            <TreatmentAdminList />
+        </main>
+    );
 }
-
-export default TreatmentPage;
