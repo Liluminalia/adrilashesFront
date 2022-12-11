@@ -5,12 +5,12 @@ import HomeAdminPage from '../../pages/user.admin/home.admin/home.admin.page';
 import CreateTreatmentPage from '../../pages/user.admin/treatments/create.treatment/create.treatment.page';
 import MakeAppointmentPage from '../../pages/user/make.appointment/make.appointment.page';
 import AppointmentsPage from '../../pages/user.admin/appointments/appointments.page';
-import { PrivateRoute } from '../private.routes/private.routes';
+import { PrivateRoute } from '../private.routes/private.route';
 import { AdminRoute } from '../admin.route/admin.route';
-import { LoginPage } from '../../pages/public/login/login.page';
-import { RegisterPage } from '../../pages/public/register/register.page';
-import { EditTreatmentPage } from '../../pages/user.admin/treatments/edit.treatment/edit.treatment.page';
-import { TreatmentsPage } from '../../pages/user.admin/treatments/treatments.page';
+import RegisterPage from '../../pages/public/register/register.page';
+import LoginPage from '../../pages/user/login/login.page';
+import TreatmentsPage from '../../pages/user.admin/treatments/treatments.page';
+import EditTreatmentPage from '../../pages/user.admin/treatments/edit.treatment/edit.treatment.page';
 
 export function AppRoutes() {
     return (
@@ -21,6 +21,7 @@ export function AppRoutes() {
             <Route path="Register" element={<RegisterPage />}></Route>
             <Route path="Details" element={<DetailsPage />}></Route>
             <Route path="Login" element={<LoginPage />}></Route>
+
             <Route
                 path="MakeAppointment"
                 element={
@@ -29,6 +30,7 @@ export function AppRoutes() {
                     </PrivateRoute>
                 }
             ></Route>
+
             <Route
                 path="HomeAdmin"
                 element={
@@ -37,6 +39,7 @@ export function AppRoutes() {
                     </AdminRoute>
                 }
             ></Route>
+
             <Route
                 path="Appointments"
                 element={
@@ -45,6 +48,7 @@ export function AppRoutes() {
                     </AdminRoute>
                 }
             ></Route>
+
             <Route
                 path="Treatments"
                 element={
@@ -53,6 +57,7 @@ export function AppRoutes() {
                     </AdminRoute>
                 }
             ></Route>
+
             <Route
                 path="CreateTreatment"
                 element={
@@ -61,14 +66,16 @@ export function AppRoutes() {
                     </AdminRoute>
                 }
             ></Route>
+
             <Route
-                path="EditTreatment/:id"
+                path="EditTreatment"
                 element={
                     <AdminRoute>
                         <EditTreatmentPage />
                     </AdminRoute>
                 }
             ></Route>
+
             <Route path="" element={<HomePage />}></Route>
             <Route path="*" element={<Navigate replace to="" />}></Route>
             <Route path="*" element={<h1>No se encontró la ruta</h1>}></Route>
