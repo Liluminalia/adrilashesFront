@@ -11,6 +11,7 @@ export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
             .then((response) => {
                 return response.json();
             })
+            .then((res) => res.treatments)
             .catch((error) => {
                 return error;
             });

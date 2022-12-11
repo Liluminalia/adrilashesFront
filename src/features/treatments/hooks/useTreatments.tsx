@@ -25,7 +25,6 @@ export const useTreatments = () => {
                 dispatcher(ac.addActionCreator(treatment))
             );
     };
-
     const handleUpdateTreatment = (
         updateTreatment: Partial<TreatmentI>,
         treatmentId: string

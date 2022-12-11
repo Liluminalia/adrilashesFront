@@ -20,7 +20,7 @@ const mock2 = {
 describe('Given the hook', () => {
     let result: {
         current: {
-            users: {
+            user: {
                 isLogged: boolean;
                 isLogging: boolean;
                 user: UserI | null;
