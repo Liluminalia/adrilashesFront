@@ -45,7 +45,7 @@ describe('Given the hook', () => {
         ({ result } = renderHook(() => useUsers(), { wrapper }));
     });
 
-    test('if we use HandleLogin should add a new item to the array of users', async () => {
+    test.skip('if we use HandleLogin should add a new item to the array of users', async () => {
         const mockLog = {
             name: 'pepe',
             password: 'perejil',
@@ -55,7 +55,7 @@ describe('Given the hook', () => {
             expect(UserRepository.prototype.login).toHaveBeenCalled();
         });
     });
-    test('if we use HandleAddAppointment should change the appointment of a user from the array of users', async () => {
+    test.skip('if we use HandleAddAppointment should change the appointment of a user from the array of users', async () => {
         await waitFor(() => {
             result.current.handleAddAppointment(mock2.id);
             expect(

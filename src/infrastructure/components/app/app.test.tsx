@@ -12,6 +12,6 @@ test('renders Home page link', () => {
             </Provider>
         </Router>
     );
-    const linkElement = screen.getByText(/Adriana Salles/i);
+    const linkElement = screen.getByText(/cuidado estetico facial/i);
     expect(linkElement).toBeInTheDocument();
 });

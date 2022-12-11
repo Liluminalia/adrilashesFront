@@ -19,7 +19,7 @@ describe('Given Footer component', () => {
                     </Router>
                 </>
             );
-            const element = screen.getByText(/Adriana Salles/i);
+            const element = screen.getByText(/cuidado estetico facial/i);
             expect(element).toBeInTheDocument();
         });
     });
