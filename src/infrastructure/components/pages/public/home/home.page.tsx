@@ -3,9 +3,9 @@ import { TreatmentList } from '../../../../../features/treatments/components/tre
 
 function HomePage() {
     return (
-        <main className="main">
+        <div className="main">
             <TreatmentList></TreatmentList>
-        </main>
+        </div>
     );
 }
 

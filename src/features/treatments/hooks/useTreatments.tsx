@@ -14,7 +14,7 @@ export const useTreatments = () => {
         repositoryTreatment
             .getAllTreatments()
             .then((treatments) =>
-                dispatcher(ac.getAllActionCreator(treatments))
+                dispatcher(ac.getAllActionCreator(treatments.treatments))
             );
     }, [repositoryTreatment, dispatcher]);
 

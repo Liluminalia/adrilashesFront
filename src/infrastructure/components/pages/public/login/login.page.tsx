@@ -1,14 +1,14 @@
 import { SyntheticEvent, useState } from 'react';
-import { redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useUsers } from '../../../../../features/users/hooks/users/useUsers';
-
+import styles from './login.page.module.css';
 type formData = {
     name: string;
     password: string;
 };
 
 export function LoginPage() {
-    const { handleLogin, user } = useUsers();
+    const { handleLogin } = useUsers();
 
     const initialLoginState: formData = {
         name: '',
@@ -24,13 +24,11 @@ export function LoginPage() {
     const handleLoginSubmit = async (ev: SyntheticEvent) => {
         ev.preventDefault();
         handleLogin(formLoginState);
-        if (user.token) localStorage.setItem('token', user.token);
-        redirect('http://localhost:3000/MakeAppointment');
     };
 
     return (
         <>
-            <section>
+            <section className={styles.loginPage}>
                 <form onSubmit={handleLoginSubmit}>
                     <input
                         type="name"
@@ -48,12 +46,13 @@ export function LoginPage() {
                         onInput={handleLoginInput}
                         required
                     />
+
                     <button type="submit">Continuar</button>
                 </form>
                 <p>
                     Inicia sesion para pedir cita. Si aun no tienes, para
                     registrarte
-                    <a href="http://localhost:3000/Register">haz click aqui</a>
+                    <Link to={'/Register'}>haz click aquí</Link>
                 </p>
             </section>
         </>

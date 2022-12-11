@@ -1,10 +1,10 @@
 import { TreatmentI } from '../../treatments/models/treatments';
-
+export type RoleI = 'user' | 'admin';
 export type ProtoUserI = {
     name?: string;
     email?: string;
     phone?: string;
-    role?: 'admin' | 'user';
+    role?: RoleI;
     isVip?: boolean;
     appointments?: Array<Appointment>;
 };
@@ -21,7 +21,7 @@ export type UserI = {
     name: string;
     email: string;
     phone: string;
-    role: 'admin' | 'user';
+    role: RoleI;
     isVip: boolean;
     appointments: Array<Appointment>;
 };

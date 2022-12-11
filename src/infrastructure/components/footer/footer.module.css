@@ -1,0 +1,12 @@
+.footer__social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.footer__info {
+    padding: 2rem;
+}
+.footer__title {
+    display: flex;
+    justify-content: center;
+}

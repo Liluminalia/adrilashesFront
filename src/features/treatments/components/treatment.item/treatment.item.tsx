@@ -17,10 +17,6 @@ export function TreatmentItem({ item }: { item: TreatmentI }) {
                         </li>
                     </ul>
                 </div>
-                <div>
-                    {/* <EditTreatment item={item}></EditTreatment>
-                    <DeleteTreatment item={item}></DeleteTreatment> */}
-                </div>
             </li>
         </>
     );

@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { TreatmentRepository } from '../../../../../../features/treatments/services/treatment.repository';
+import { useTreatments } from '../../../../../../features/treatments/hooks/useTreatments';
+import { TreatmentI } from '../../../../../../features/treatments/models/treatments';
 
 type formData = {
     title: string;
@@ -12,8 +13,7 @@ type formData = {
 
 export function EditTreatmentPage() {
     const { id } = useParams();
-    const treatmentRepo = new TreatmentRepository();
-
+    const { handleUpdateTreatment } = useTreatments();
     const initialState: formData = {
         title: '',
         img: '',
@@ -28,12 +28,21 @@ export function EditTreatmentPage() {
     };
     const handleSubmit = async (ev: SyntheticEvent) => {
         ev.preventDefault();
-        await treatmentRepo.updateTreatment(formState, id as string);
+        const editTreatment: TreatmentI = {
+            ...formState,
+            id: id as string,
+            title: formState.title,
+            img: formState.img,
+            description: formState.description,
+            price: formState.price,
+            time: formState.time,
+        };
+        handleUpdateTreatment(editTreatment, id as string);
     };
     return (
         <>
             <div className="editTreatmentForm">
-                <h2>Editar</h2>
+                <h2>Edita tu tratamiento</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="editTreatmentForm__title">
                         <input

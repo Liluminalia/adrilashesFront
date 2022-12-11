@@ -3,9 +3,9 @@ import { TreatmentLoggedList } from '../../../../../features/users/components/tr
 
 function MakeAppointmentPage() {
     return (
-        <main className="main">
+        <div className="main">
             <TreatmentLoggedList />
-        </main>
+        </div>
     );
 }
 

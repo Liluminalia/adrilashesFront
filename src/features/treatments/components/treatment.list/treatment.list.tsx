@@ -17,11 +17,9 @@ export function TreatmentList() {
                     {treatments.map((item: TreatmentI) => (
                         <>
                             <TreatmentItem
-                                key={item.id}
+                                key={item.id + 10}
                                 item={item}
                             ></TreatmentItem>
-
-                            {/* <AddTreatment item={item}></AddTreatment> */}
                         </>
                     ))}
                 </ul>

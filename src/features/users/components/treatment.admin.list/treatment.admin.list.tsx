@@ -5,7 +5,7 @@ import { TreatmentI } from '../../../treatments/models/treatments';
 import { TreatmentAdminItem } from '../treatment.admin.item/treatment.admin.item';
 
 export function TreatmentAdminList() {
-    const title = 'tratamientos';
+    const title = 'Tratamientos';
     const { treatments } = useTreatments();
 
     return (
@@ -18,7 +18,7 @@ export function TreatmentAdminList() {
                     {treatments.map((item: TreatmentI) => (
                         <>
                             <TreatmentAdminItem
-                                key={item.id}
+                                key={item.id + 2}
                                 item={item}
                             ></TreatmentAdminItem>
                         </>

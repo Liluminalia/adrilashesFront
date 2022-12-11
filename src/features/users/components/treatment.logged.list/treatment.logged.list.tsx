@@ -17,7 +17,7 @@ export function TreatmentLoggedList() {
                     {treatments.map((item: TreatmentI) => (
                         <>
                             <TreatmentLoggedItem
-                                key={item.id}
+                                key={item.id + 300}
                                 item={item}
                             ></TreatmentLoggedItem>
                         </>

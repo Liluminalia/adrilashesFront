@@ -1,10 +1,16 @@
+import { Link } from 'react-router-dom';
+
 export function LoginButton() {
     return (
         <>
             <section>
-                <a href="http://localhost:3000/Login">
-                    <img src="url de la imagen" alt="logo adri lashes" />
-                </a>
+                <Link to={'/Login'}>
+                    <img
+                        src="./assets/logo.jpg"
+                        alt="logo adri lashes"
+                        width={75}
+                    />
+                </Link>
             </section>
         </>
     );

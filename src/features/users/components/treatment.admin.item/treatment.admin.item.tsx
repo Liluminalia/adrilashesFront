@@ -20,15 +20,15 @@ export function TreatmentAdminItem({ item }: { item: TreatmentI }) {
                     </ul>
                 </div>
                 <div>
-                    <a href={'http://localhost:3000/EditTreatment/' + item.id}>
-                        ✏️
-                    </a>
+                    <Link to={'/EditTreatment/' + item.id}>✏️</Link>
                 </div>
                 <div
                     onClick={() => {
                         handleDeleteTreatment(item);
                     }}
-                ></div>
+                >
+                    🗑️
+                </div>
             </li>
         </>
     );

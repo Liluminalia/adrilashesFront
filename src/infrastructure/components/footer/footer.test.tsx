@@ -1,23 +1,22 @@
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { appStore } from '../../../../store/store';
-import MakeAppointmentPage from './make.appointment.page';
+import { appStore } from '../../store/store';
+import { Footer } from './footer';
 
-describe('Given Make Appointment page', () => {
-    describe('When we render the page', () => {
-        test('Then it should display "solicita contacto para la cita"', () => {
+describe('Given Footer component', () => {
+    describe('When we render the component', () => {
+        test('Then it should display "Adriana Salles"', () => {
             render(
                 <>
                     <Router>
                         <Provider store={appStore}>
-                            <MakeAppointmentPage />
+                            <Footer />
                         </Provider>
                     </Router>
                 </>
             );
-            const element = screen.getByText(/solicita contacto para la cita/i);
+            const element = screen.getByText(/Adriana Salles/i);
             expect(element).toBeInTheDocument();
         });
     });

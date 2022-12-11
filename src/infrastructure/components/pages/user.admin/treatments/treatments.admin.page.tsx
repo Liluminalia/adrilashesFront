@@ -1,9 +1,9 @@
 import { TreatmentAdminList } from '../../../../../features/users/components/treatment.admin.list/treatment.admin.list';
 
-export function TreatmentsPage() {
+export function TreatmentsAdminPage() {
     return (
-        <main className="main">
+        <div className="main">
             <TreatmentAdminList />
-        </main>
+        </div>
     );
 }
