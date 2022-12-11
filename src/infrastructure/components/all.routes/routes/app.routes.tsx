@@ -7,10 +7,10 @@ import MakeAppointmentPage from '../../pages/user/make.appointment/make.appointm
 import AppointmentsPage from '../../pages/user.admin/appointments/appointments.page';
 import { PrivateRoute } from '../private.routes/private.route';
 import { AdminRoute } from '../admin.route/admin.route';
-import RegisterPage from '../../pages/public/register/register.page';
-import LoginPage from '../../pages/user/login/login.page';
-import TreatmentsPage from '../../pages/user.admin/treatments/treatments.page';
-import EditTreatmentPage from '../../pages/user.admin/treatments/edit.treatment/edit.treatment.page';
+import { RegisterPage } from '../../pages/public/register/register.page';
+import { LoginPage } from '../../pages/public/login/login.page';
+import { TreatmentsPage } from '../../pages/user.admin/treatments/treatments.page';
+import { EditTreatmentPage } from '../../pages/user.admin/treatments/edit.treatment/edit.treatment.page';
 
 export function AppRoutes() {
     return (
