@@ -25,45 +25,45 @@ export function AppRoutes() {
             <Route
                 path="MakeAppointment"
                 element={
-                    // <PrivateRoute>
-                    <MakeAppointmentPage />
-                    // </PrivateRoute>
+                    <PrivateRoute>
+                        <MakeAppointmentPage />
+                    </PrivateRoute>
                 }
             ></Route>
 
             <Route
                 path="HomeAdmin"
                 element={
-                    // <AdminRoute>
-                    <HomeAdminPage />
-                    // </AdminRoute>
+                    <AdminRoute>
+                        <HomeAdminPage />
+                    </AdminRoute>
                 }
             ></Route>
 
             <Route
                 path="Appointments"
                 element={
-                    // <AdminRoute>
-                    <AppointmentsPage />
-                    // </AdminRoute>
+                    <AdminRoute>
+                        <AppointmentsPage />
+                    </AdminRoute>
                 }
             ></Route>
 
             <Route
                 path="Treatments"
                 element={
-                    // <AdminRoute>
-                    <TreatmentsAdminPage />
-                    // </AdminRoute>
+                    <AdminRoute>
+                        <TreatmentsAdminPage />
+                    </AdminRoute>
                 }
             ></Route>
 
             <Route
                 path="CreateTreatment"
                 element={
-                    // <AdminRoute>
-                    <CreateTreatmentPage />
-                    // </AdminRoute>
+                    <AdminRoute>
+                        <CreateTreatmentPage />
+                    </AdminRoute>
                 }
             ></Route>
 
@@ -75,9 +75,9 @@ export function AppRoutes() {
                 <Route
                     path=":id"
                     element={
-                        // <AdminRoute>
-                        <EditTreatmentPage />
-                        // </AdminRoute>
+                        <AdminRoute>
+                            <EditTreatmentPage />
+                        </AdminRoute>
                     }
                 ></Route>
             </Route>
