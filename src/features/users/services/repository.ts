@@ -1,7 +1,7 @@
 import { UserI } from '../models/users';
 
 export interface RepositoryUsers {
-    getAllUsers: () => Promise<Array<UserI>>;
+    getAllUsers: () => Promise<{ users: UserI[] }>;
     getOneUser?: (id: string) => Promise<UserI>;
     register: (item: Partial<UserI>) => Promise<UserI>;
     login: (item: Partial<UserI>) => Promise<{ user: UserI; token: string }>;

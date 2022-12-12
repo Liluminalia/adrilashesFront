@@ -19,14 +19,12 @@ export function UserList() {
                         item.appointments.length > 0 ? (
                             <>
                                 <UserItem
-                                    key={item.id + 2}
+                                    key={item.id + 50}
                                     item={item}
                                 ></UserItem>
                             </>
                         ) : (
-                            <>
-                                <p>aun no tienes citas pendientes!</p>
-                            </>
+                            <></>
                         )
                     )}
                 </ul>

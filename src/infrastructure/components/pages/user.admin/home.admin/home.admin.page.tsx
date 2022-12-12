@@ -5,7 +5,7 @@ function HomeAdminPage() {
         <div className="main">
             <h2>Buenos dias Adriana, ¿que deseas hacer?</h2>
             <div>
-                <Link to={'/Users'}>gestionar citas</Link>
+                <Link to={'/Appointments'}>gestionar citas</Link>
             </div>
             <div>
                 <Link to={'/Treatments'}>gestionar tratamientos</Link>

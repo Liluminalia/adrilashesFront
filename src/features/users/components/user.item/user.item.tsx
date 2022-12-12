@@ -16,7 +16,7 @@ export function UserItem({ item }: { item: UserI }) {
                                 {item.appointments.map(
                                     (appointment: Appointment) => (
                                         <li>
-                                            tratamiento: {appointment._id.title}{' '}
+                                            tratamiento: {appointment._id.title}
                                             precio: {appointment._id.price}
                                             duracion: {appointment._id.time}
                                         </li>

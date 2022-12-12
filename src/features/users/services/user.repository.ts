@@ -6,7 +6,7 @@ export class UserRepository implements RepositoryUsers {
     constructor(url = '') {
         this.url = 'http://localhost:7700/users';
     }
-    getAllUsers(): Promise<Array<UserI>> {
+    getAllUsers(): Promise<{ users: UserI[] }> {
         return fetch(this.url, {
             method: 'GET',
             headers: {
