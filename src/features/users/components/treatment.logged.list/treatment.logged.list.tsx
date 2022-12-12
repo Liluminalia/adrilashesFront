@@ -4,9 +4,9 @@ import { TreatmentI } from '../../../treatments/models/treatments';
 import { TreatmentLoggedItem } from '../treatment.logged.item/treatment.logged.item';
 
 export function TreatmentLoggedList() {
-    const title = 'solicita contacto para la cita';
+    const title =
+        'Clica en cualquiera de los tratamientos y nos llegara una notificacion para darle cita!';
     const { treatments } = useTreatments();
-
     return (
         <section className="treatmentlist">
             <div className="treatmentlist__title">

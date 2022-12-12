@@ -1,5 +1,4 @@
-.main {
-    min-height: 45vh;
+.logo {
     display: flex;
     justify-content: center;
 }

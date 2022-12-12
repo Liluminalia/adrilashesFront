@@ -2,11 +2,9 @@ import { createReducer } from '@reduxjs/toolkit';
 import { UserI } from '../../models/users';
 import * as ac from './action.creators';
 
-// const user0= UserRepository.prototype.getOneUser();
-// user0.
 const initialState: Array<UserI> = [];
 
-export const userReducer = createReducer(initialState, (builder) => {
+export const userReducerAdmin = createReducer(initialState, (builder) => {
     builder.addCase(
         ac.getAllUsersActionCreator,
         (_state, action) => action.payload

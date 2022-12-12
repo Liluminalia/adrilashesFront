@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import {
     useAppDispatch,
     useAppSelector,
@@ -9,15 +9,16 @@ import * as ac from '../../reducers/users.list.reducers/action.creators';
 import { UserRepository } from '../../services/user.repository';
 
 export const useUsersList = () => {
-    const users = useAppSelector((state: RootState) => state.users);
+    const users = useAppSelector((state: RootState) => state.Appointments);
     const dispatcher = useAppDispatch();
     const repositoryUser = useMemo(() => new UserRepository(), []);
 
-    const handleGetAll = () => {
+    useEffect(() => {
         repositoryUser
             .getAllUsers()
             .then((users) => dispatcher(ac.getAllUsersActionCreator(users)));
-    };
+    }, [repositoryUser, dispatcher]);
+
     const handleDiscount = (
         treatmentId: string,
         userId: string,
@@ -40,7 +41,6 @@ export const useUsersList = () => {
 
     return {
         users,
-        handleGetAll,
         handleDiscount,
         handleDeleteAppointment,
     };

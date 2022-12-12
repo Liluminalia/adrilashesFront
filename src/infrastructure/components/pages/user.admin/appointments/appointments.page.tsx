@@ -1,7 +1,7 @@
 import React from 'react';
 
 function AppointmentsPage() {
-    return <main className="main"> Appointments page</main>;
+    return <div className="main"> Appointments page</div>;
 }
 
 export default AppointmentsPage;

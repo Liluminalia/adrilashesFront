@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+
+.treatmentlist__titulo {
+    display: flex;
+    justify-content: center;
+    font-family: Allison;
+    font-size: 3rem;
+}
+.treatmentlist {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5rem;
+}
+.treatmentlist__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}

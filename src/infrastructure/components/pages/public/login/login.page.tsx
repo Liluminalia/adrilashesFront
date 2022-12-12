@@ -29,30 +29,36 @@ export function LoginPage() {
     return (
         <>
             <section className={styles.loginPage}>
-                <form onSubmit={handleLoginSubmit}>
-                    <input
-                        type="name"
-                        name="name"
-                        placeholder="Usuario"
-                        value={formLoginState.name}
-                        onInput={handleLoginInput}
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Contraseña"
-                        value={formLoginState.password}
-                        onInput={handleLoginInput}
-                        required
-                    />
+                <form
+                    onSubmit={handleLoginSubmit}
+                    className={styles.loginPage__form}
+                >
+                    <div className={styles.form__container}>
+                        <input
+                            type="name"
+                            name="name"
+                            placeholder="Usuario"
+                            value={formLoginState.name}
+                            onInput={handleLoginInput}
+                            required
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Contraseña"
+                            value={formLoginState.password}
+                            onInput={handleLoginInput}
+                            required
+                        />
 
-                    <button type="submit">Continuar</button>
+                        <button className={styles.form__send} type="submit">
+                            Continuar
+                        </button>
+                    </div>
                 </form>
                 <p>
-                    Inicia sesion para pedir cita. Si aun no tienes, para
-                    registrarte
-                    <Link to={'/Register'}>haz click aquí</Link>
+                    ¿No tienes cuenta? Registrate
+                    <Link to={'/Register'}> aquí.</Link>
                 </p>
             </section>
         </>
