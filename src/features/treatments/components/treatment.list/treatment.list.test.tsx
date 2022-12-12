@@ -24,7 +24,6 @@ describe('Given TreatmentAdminList component', () => {
             };
             const userMock = {
                 name: 'david',
-                password: '321',
                 id: '2',
                 phone: 'sdsd',
                 isVip: false,
