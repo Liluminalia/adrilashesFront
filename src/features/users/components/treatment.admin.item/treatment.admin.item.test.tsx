@@ -25,6 +25,7 @@ describe('Given TreatmentAdminItem component', () => {
             );
             const element = screen.getByText(/string/i);
             expect(element).toBeInTheDocument();
+            //falta cubrir esa linea
             // expect(screen.getByRole('button')).toBeInTheDocument();
         });
     });
