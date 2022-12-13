@@ -6,7 +6,7 @@ import { RegisterPage } from './register.page';
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
-    ...(jest.requireActual('react-router-dom') as jest.Mock),
+    ...jest.requireActual('react-router-dom'),
     useNavigate: () => mockNavigate,
 }));
 describe('Given Register page', () => {

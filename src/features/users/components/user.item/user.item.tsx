@@ -15,7 +15,7 @@ export function UserItem({ item }: { item: UserI }) {
                             <ul className={styles.info__description}>
                                 {item.appointments.map(
                                     (appointment: Appointment) => (
-                                        <li>
+                                        <li key={appointment._id.id}>
                                             tratamiento: {appointment._id.title}
                                             precio: {appointment._id.price}
                                             duracion: {appointment._id.time}

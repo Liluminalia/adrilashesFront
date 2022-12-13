@@ -21,8 +21,7 @@ describe('Given the route', () => {
                 </Router>
             </>
         );
-        const title = new RegExp('patatas', 'i');
-        const element = screen.getByText(title);
+        const element = screen.getByText(/patatas/i);
         expect(element).toBeInTheDocument();
     });
     test('if we are not logged should go to home', async () => {
@@ -37,8 +36,7 @@ describe('Given the route', () => {
                 </Router>
             </>
         );
-        const title = new RegExp('patatas', 'i');
-        const element = screen.queryByText(title);
+        const element = screen.queryByText(/patatas/i);
         expect(element).toBe(null);
         expect(Navigate).toHaveBeenCalled();
     });

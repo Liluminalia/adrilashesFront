@@ -13,7 +13,7 @@ import { useUsers } from './useUsers';
 const mockNavigate = jest.fn();
 jest.mock('../../services/user.repository');
 jest.mock('react-router-dom', () => ({
-    ...(jest.requireActual('react-router-dom') as any),
+    ...(jest.requireActual('react-router-dom') as jest.Mock),
     useNavigate: () => mockNavigate,
 }));
 let result: {
@@ -63,7 +63,21 @@ describe('Given the hook', () => {
         expect(UserRepository.prototype.login).toHaveBeenCalled();
         expect(mockNavigate).toHaveBeenCalled();
     });
-    test('if we use HandleLogin and we are a user, it should return to make appointment page', async () => {
+    test('if we use HandleAddAppointment should change the appointment of a user from the array of users', async () => {
+        await waitFor(() => {
+            result.current.handleAddAppointment(appointmentMock._id.id);
+        });
+        expect(UserRepository.prototype.addUserAppointment).toHaveBeenCalled();
+    });
+    test('if we use HandleLogout should delete de token and go to home page', async () => {
+        await waitFor(() => {
+            result.current.handleLogout();
+        });
+        expect(spyDispatch).toHaveBeenCalled();
+    });
+});
+describe('if we use HandleLogin and we are a user', () => {
+    test('it should return to make appointment page', async () => {
         UserRepository.prototype.login = jest.fn().mockResolvedValue({
             user: userMock,
             token: 'string',
@@ -85,17 +99,5 @@ describe('Given the hook', () => {
             result.current.handleLogin(mock);
         });
         expect(mockNavigate).toHaveBeenCalled();
-    });
-    test('if we use HandleAddAppointment should change the appointment of a user from the array of users', async () => {
-        await waitFor(() => {
-            result.current.handleAddAppointment(appointmentMock._id.id);
-        });
-        expect(UserRepository.prototype.addUserAppointment).toHaveBeenCalled();
-    });
-    test('if we use HandleLogout should delete de token and go to home page', async () => {
-        await waitFor(() => {
-            result.current.handleLogout();
-        });
-        expect(spyDispatch).toHaveBeenCalled();
     });
 });

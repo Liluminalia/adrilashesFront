@@ -5,8 +5,6 @@ import { RoleI } from '../../features/users/models/users';
 import { userReducer } from '../../features/users/reducers/user.reducers/reducer.users';
 import { userReducerAdmin } from '../../features/users/reducers/users.list.reducers/reducer.users.list';
 import { RootState } from '../store/store';
-import { userMock } from './mockStore';
-
 export const appointment2Mock = {
     _id: { title: 'manicura' } as TreatmentI,
     treatmentId: { title: 'manicura' } as TreatmentI,
