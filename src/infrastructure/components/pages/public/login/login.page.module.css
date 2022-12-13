@@ -14,7 +14,7 @@ input {
 }
 .form__send {
     background-color: rgb(222, 223, 223);
-    font-family: Allison, Marck Script, verdana;
+    font-family: Allison, Marck Script, verdana, Arial, Helvetica, sans-serif;
     font-size: 3rem;
     border-radius: 50px;
     border-color: rgb(215, 191, 136);

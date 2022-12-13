@@ -4,7 +4,7 @@
 .treatmentlist__titulo {
     display: flex;
     justify-content: center;
-    font-family: Allison, Marck Script, verdana;
+    font-family: Allison, Marck Script, verdana, Arial, Helvetica, sans-serif;
     font-size: 3rem;
 }
 .treatmentlist {

@@ -14,7 +14,7 @@
     list-style: none;
 }
 .item__info {
-    font-family: Allison, Marck Script, verdana;
+    font-family: Allison, Marck Script, verdana, Arial, Helvetica, sans-serif;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
