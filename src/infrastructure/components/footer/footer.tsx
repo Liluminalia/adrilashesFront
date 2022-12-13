@@ -19,7 +19,7 @@ export function Footer() {
                         Estaré a tu disposición para cualquier duda.
                     </p>
                     <div className={styles.footer__social}>
-                        <a href="">
+                        <a href="https://twitter.com/">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png"
                                 alt="imagen de logo de twitter"
