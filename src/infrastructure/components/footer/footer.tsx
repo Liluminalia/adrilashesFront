@@ -33,7 +33,7 @@ export function Footer() {
                                 width={21}
                             />
                         </a>
-                        <a href="">
+                        <a href="mailto:adriana-salles@hotmail.com">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png"
                                 alt="imagen de logo de gmail"

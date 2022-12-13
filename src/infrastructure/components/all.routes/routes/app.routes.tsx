@@ -84,7 +84,6 @@ export function AppRoutes() {
 
             <Route path="" element={<HomePage />}></Route>
             <Route path="*" element={<Navigate replace to="" />}></Route>
-            <Route path="*" element={<h1>No se encontró la ruta</h1>}></Route>
         </Routes>
     );
 }

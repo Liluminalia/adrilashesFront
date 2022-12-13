@@ -27,9 +27,9 @@ export function RegisterPage() {
         const element = ev.target as HTMLFormElement;
         setFormState({ ...formState, [element.name]: element.value });
     };
-    const handleSubmit = async (ev: SyntheticEvent) => {
+    const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
-        await userRepo.register(formState);
+        userRepo.register(formState);
         navigate('/Login');
     };
     return (

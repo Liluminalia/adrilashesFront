@@ -24,7 +24,7 @@ export const useUsers = () => {
             if (response.user.role === 'admin') {
                 return navigate('/HomeAdmin');
             }
-            navigate('/MakeAppointment');
+            return navigate('/MakeAppointment');
         });
     };
     const handleLogout = () => {

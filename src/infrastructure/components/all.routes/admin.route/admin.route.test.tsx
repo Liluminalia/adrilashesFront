@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter as Router, Navigate } from 'react-router-dom';
-import { PrivateRoute } from './private.route';
+import { AdminRoute } from './admin.route';
 import { mockStoreAdmin } from '../../../mockStore/mockStore';
 import { mockStoreUnlogged } from '../../../mockStore/mockStoreUnlogged';
 jest.mock('react-router-dom', () => ({
@@ -14,9 +14,9 @@ describe('Given the route', () => {
             <>
                 <Router>
                     <Provider store={mockStoreAdmin}>
-                        <PrivateRoute>
+                        <AdminRoute>
                             <p>patatas</p>
-                        </PrivateRoute>
+                        </AdminRoute>
                     </Provider>
                 </Router>
             </>
@@ -30,9 +30,9 @@ describe('Given the route', () => {
             <>
                 <Router initialEntries={['/home']} initialIndex={1}>
                     <Provider store={mockStoreUnlogged}>
-                        <PrivateRoute>
+                        <AdminRoute>
                             <p>patatas</p>
-                        </PrivateRoute>
+                        </AdminRoute>
                     </Provider>
                 </Router>
             </>

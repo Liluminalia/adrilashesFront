@@ -22,7 +22,7 @@ describe('Given TreatmentAdminItem component', () => {
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(/Time/i);
+            const element = screen.getByText(/string/i);
             expect(element).toBeInTheDocument();
             fireEvent.click(screen.getByRole('button'));
         });

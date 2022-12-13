@@ -56,6 +56,7 @@ export function CreateTreatmentPage() {
                         <input
                             type="img"
                             name="img"
+                            placeholder="Url de la imagen"
                             value={formState.img}
                             onInput={handleInput}
                         />
@@ -78,6 +79,7 @@ export function CreateTreatmentPage() {
                             onInput={handleInput}
                             required
                         />
+                        precio
                     </div>
                     <div className="addTreatmentForm__time">
                         <input
@@ -88,6 +90,7 @@ export function CreateTreatmentPage() {
                             onInput={handleInput}
                             required
                         />
+                        duracion
                     </div>
                     <button type="submit" className="addTreatmentForm__button">
                         Crear tratamiento
