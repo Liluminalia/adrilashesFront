@@ -15,7 +15,7 @@
     font-weight: 800;
     font-size: 10rem;
     color: black;
-    font-family: Allison, Marck Script;
+    font-family: Allison, Marck Script, verdana;
 }
 .header__logo {
     display: flex;
