@@ -16,7 +16,7 @@ const mock2 = {
     img: 'string',
     description: 'string',
     price: 53,
-    time: 53,
+    time: 55,
 };
 
 describe('Given the hook', () => {
