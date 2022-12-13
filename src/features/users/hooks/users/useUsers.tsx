@@ -6,26 +6,34 @@ import {
 import { RootState } from '../../../../infrastructure/store/store';
 import { UserI } from '../../models/users';
 import * as ac from '../../reducers/user.reducers/action.creators';
-import { RepositoryUsers } from '../../services/repository';
 import { UserRepository } from '../../services/user.repository';
-
+import { useNavigate } from 'react-router-dom';
+import { RepositoryUsers } from '../../services/repository';
 export const useUsers = () => {
     const user = useAppSelector((state: RootState) => state.users);
     const dispatcher = useAppDispatch();
-    const repositoryUser: RepositoryUsers<UserI> = useMemo(
+    const repositoryUser: RepositoryUsers = useMemo(
         () => new UserRepository(),
         []
     );
-
+    const navigate = useNavigate();
     const handleLogin = (user: Partial<UserI>) => {
-        repositoryUser
-            .login(user)
-            .then((response) => dispatcher(ac.loginActionCreator(response)));
+        repositoryUser.login(user).then((response) => {
+            dispatcher(ac.loginActionCreator(response));
+            localStorage.setItem('token', response.token);
+            if (response.user.role === 'admin') {
+                return navigate('/HomeAdmin');
+            }
+            return navigate('/MakeAppointment');
+        });
     };
-
-    const handleAddAppointment = (userId: string) => {
+    const handleLogout = () => {
+        dispatcher(ac.logoutActionCreator());
+        localStorage.removeItem('token');
+    };
+    const handleAddAppointment = (treatmentId: string) => {
         repositoryUser
-            .addUserAppointment(userId)
+            .addUserAppointment(treatmentId)
             .then((user: UserI) =>
                 dispatcher(ac.addAppointmentActionCreator(user))
             );
@@ -34,6 +42,7 @@ export const useUsers = () => {
     return {
         user,
         handleLogin,
+        handleLogout,
         handleAddAppointment,
     };
 };

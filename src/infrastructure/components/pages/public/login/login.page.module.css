@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+input {
+    background-color: rgb(222, 223, 223);
+    border: 0;
+    padding: 1rem;
+    align-items: center;
+}
+.form__send {
+    background-color: rgb(222, 223, 223);
+    font-family: Allison, Marck Script, verdana, Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    border-radius: 50px;
+    border-color: rgb(215, 191, 136);
+}

@@ -1,6 +1,6 @@
-import { userReducer } from './reducer.users.list';
 import { actionTypes } from './action.types';
 import { UserI } from '../../models/users';
+import { userReducerAdmin } from './reducer.users.list';
 
 const userMock: UserI = {
     id: '111',
@@ -21,7 +21,7 @@ describe('When the action is getAllUsers', () => {
             payload: [userMock],
         };
         state = [];
-        const result = userReducer(state, action);
+        const result = userReducerAdmin(state, action);
         expect(result).toEqual(action.payload);
     });
 });
@@ -41,7 +41,7 @@ describe('When the action is updateAppointment', () => {
             payload: updatedMock,
         };
         state = [userMock];
-        const result = userReducer(state, action);
+        const result = userReducerAdmin(state, action);
         expect(result[0]).toEqual(action.payload);
     });
     test('Then if is not the same id, the returned state should include the user not updated', () => {
@@ -59,7 +59,7 @@ describe('When the action is updateAppointment', () => {
             payload: updatedMock,
         };
         state = [userMock];
-        const result = userReducer(state, action);
+        const result = userReducerAdmin(state, action);
         expect(result[0]).toEqual(state[0]);
     });
 });
@@ -70,7 +70,7 @@ describe('When the action is deleteAppointment', () => {
             payload: userMock.id,
         };
         state = [userMock];
-        const result = userReducer(state, action);
+        const result = userReducerAdmin(state, action);
         expect(result).toStrictEqual([]);
     });
 });
@@ -83,7 +83,7 @@ describe('When the action is any other', () => {
         state = [userMock];
     });
     test('Then the returned state should be ...', () => {
-        const result = userReducer(state, action);
+        const result = userReducerAdmin(state, action);
         expect(result).toEqual(state);
     });
 });

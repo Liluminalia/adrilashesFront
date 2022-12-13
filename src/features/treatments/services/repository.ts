@@ -1,7 +1,12 @@
-export interface RepositoryTreatments<T> {
-    getAllTreatments: () => Promise<Array<T>>;
-    getOneTreatment?: (treatmentId: string) => Promise<T>;
-    addTreatment: (item: Partial<T>) => Promise<T>;
-    updateTreatment: (item: Partial<T>, treatmentId: string) => Promise<T>;
+import { TreatmentI } from '../models/treatments';
+
+export interface RepositoryTreatments {
+    getAllTreatments: () => Promise<{ treatments: Array<TreatmentI> }>;
+    getOneTreatment?: (treatmentId: string) => Promise<TreatmentI>;
+    addTreatment: (item: Partial<TreatmentI>) => Promise<TreatmentI>;
+    updateTreatment: (
+        item: Partial<TreatmentI>,
+        treatmentId: string
+    ) => Promise<TreatmentI>;
     deleteTreatment: (treatmentId: string) => Promise<void>;
 }

@@ -1,13 +1,19 @@
 import { UserI } from '../models/users';
 import { RepositoryUsers } from './repository';
 
-export class UserRepository implements RepositoryUsers<UserI> {
+export class UserRepository implements RepositoryUsers {
     url: string;
     constructor(url = '') {
         this.url = 'http://localhost:7700/users';
     }
-    getAllUsers(): Promise<Array<UserI>> {
-        return fetch(this.url)
+    getAllUsers(): Promise<{ users: UserI[] }> {
+        return fetch(this.url, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+            },
+        })
             .then((response) => {
                 return response.json();
             })
@@ -63,8 +69,8 @@ export class UserRepository implements RepositoryUsers<UserI> {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
-            // authorization :
         })
             .then((response) => {
                 return response.json();
@@ -78,6 +84,7 @@ export class UserRepository implements RepositoryUsers<UserI> {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         })
             .then((response) => {
@@ -92,6 +99,7 @@ export class UserRepository implements RepositoryUsers<UserI> {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         })
             .then((response) => {

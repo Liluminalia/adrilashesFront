@@ -42,13 +42,7 @@ const mockUserAppointment = {
 describe('Given the hook', () => {
     let result: {
         current: {
-            users: {
-                isLogged: boolean;
-                isLogging: boolean;
-                user: UserI | null;
-                token: string | null;
-            };
-            handleGetAll: () => void;
+            users: UserI[];
             handleDiscount: (
                 treatmentId: string,
                 userId: string,
@@ -67,23 +61,16 @@ describe('Given the hook', () => {
             .mockResolvedValue([mockUser]);
         UserRepository.prototype.updateUserAppointment = jest
             .fn()
-            .mockResolvedValue(mockUserAppointment);
+            .mockResolvedValue(mockUserAppointment.appointments);
         UserRepository.prototype.deleteUserAppointment = jest
             .fn()
-            .mockResolvedValue(mockUser);
+            .mockResolvedValue([]);
         const wrapper = ({ children }: { children: JSX.Element }) => (
             <Provider store={appStore}>{children}</Provider>
         );
 
         // eslint-disable-next-line testing-library/no-render-in-setup
         ({ result } = renderHook(() => useUsersList(), { wrapper }));
-    });
-
-    test('if we use HandleGetAll should return an array of users', async () => {
-        await waitFor(() => {
-            result.current.handleGetAll();
-            expect(UserRepository.prototype.getAllUsers).toHaveBeenCalled();
-        });
     });
     test('if we use HandleDiscount should change the appointment of a user from the array of users', async () => {
         await waitFor(() => {

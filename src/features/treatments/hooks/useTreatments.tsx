@@ -1,20 +1,23 @@
 import { useEffect, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import {
+    useAppDispatch,
+    useAppSelector,
+} from '../../../infrastructure/store/hooks';
 import { RootState } from '../../../infrastructure/store/store';
 import { TreatmentI } from '../models/treatments';
 import * as ac from '../reducers/action.creators';
 import { TreatmentRepository } from '../services/treatment.repository';
 
 export const useTreatments = () => {
-    const treatments = useSelector((state: RootState) => state.treatments);
-    const dispatcher = useDispatch();
+    const treatments = useAppSelector((state: RootState) => state.treatments);
+    const dispatcher = useAppDispatch();
     const repositoryTreatment = useMemo(() => new TreatmentRepository(), []);
 
     useEffect(() => {
         repositoryTreatment
             .getAllTreatments()
             .then((treatments) =>
-                dispatcher(ac.getAllActionCreator(treatments))
+                dispatcher(ac.getAllActionCreator(treatments.treatments))
             );
     }, [repositoryTreatment, dispatcher]);
 

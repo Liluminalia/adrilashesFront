@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { UserI } from '../../models/users';
+import { RoleI, UserI } from '../../models/users';
 import * as ac from './action.creators';
 
 const initialState: {
@@ -7,7 +7,7 @@ const initialState: {
     isLogged: boolean;
     isLogging: boolean;
     token: string | null;
-    role: 'admin' | 'user' | null;
+    role: RoleI | null;
 } = {
     user: null,
     isLogged: false,
@@ -30,6 +30,7 @@ export const userReducer = createReducer(initialState, (builder) => {
         isLogging: false,
         user: action.payload.user,
         token: action.payload.token,
+        role: action.payload.user.role,
     }));
     builder.addCase(ac.logoutActionCreator, (_state, action) => action.payload);
     builder.addCase(ac.addAppointmentActionCreator, (state, action) => ({

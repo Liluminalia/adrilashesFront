@@ -1,15 +1,18 @@
 import { UserI } from '../models/users';
 
-export interface RepositoryUsers<T> {
-    getAllUsers: () => Promise<Array<T>>;
-    getOneUser?: (id: string) => Promise<T>;
-    register: (item: Partial<T>) => Promise<T>;
-    login: (item: Partial<T>) => Promise<{ user: UserI; token: string }>;
+export interface RepositoryUsers {
+    getAllUsers: () => Promise<{ users: UserI[] }>;
+    getOneUser?: (id: string) => Promise<UserI>;
+    register: (item: Partial<UserI>) => Promise<UserI>;
+    login: (item: Partial<UserI>) => Promise<{ user: UserI; token: string }>;
     updateUserAppointment: (
         treatmentId: string,
         userId: string,
         discount: string
-    ) => Promise<T>;
-    addUserAppointment: (treatmentId: string) => Promise<T>;
-    deleteUserAppointment: (treatmentId: string, userId: string) => Promise<T>;
+    ) => Promise<UserI>;
+    addUserAppointment: (treatmentId: string) => Promise<UserI>;
+    deleteUserAppointment: (
+        treatmentId: string,
+        userId: string
+    ) => Promise<UserI>;
 }

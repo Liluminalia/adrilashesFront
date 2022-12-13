@@ -1,17 +1,16 @@
 import { TreatmentI } from '../models/treatments';
 import { RepositoryTreatments } from './repository';
 
-export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
+export class TreatmentRepository implements RepositoryTreatments {
     url: string;
     constructor(url = '') {
         this.url = 'http://localhost:7700/treatments';
     }
-    getAllTreatments(): Promise<Array<TreatmentI>> {
+    getAllTreatments(): Promise<{ treatments: Array<TreatmentI> }> {
         return fetch(this.url)
             .then((response) => {
                 return response.json();
             })
-            .then((res) => res.treatments)
             .catch((error) => {
                 return error;
             });
@@ -31,6 +30,7 @@ export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
             body: JSON.stringify(treatment),
             headers: {
                 'content-type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         })
             .then((response) => {
@@ -50,6 +50,7 @@ export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
             body: JSON.stringify(treatment),
             headers: {
                 'content-type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         })
             .then((response) => {
@@ -64,6 +65,7 @@ export class TreatmentRepository implements RepositoryTreatments<TreatmentI> {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         })
             .then((response) => {

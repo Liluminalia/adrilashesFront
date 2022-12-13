@@ -20,7 +20,7 @@ describe('Given TreatmentRepository Service', () => {
             it should return a Promise of an Array of Treatment`, async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
-                json: jest.fn().mockResolvedValue({ treatments: [] }),
+                json: jest.fn().mockResolvedValue([]),
             });
             const result = await service.getAllTreatments();
             expect(fetch).toHaveBeenCalled();

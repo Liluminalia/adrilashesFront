@@ -1,19 +1,22 @@
 import { render, screen } from '@testing-library/react';
-import React from 'react';
+import { Provider } from 'react-redux';
 import { MemoryRouter as Router } from 'react-router-dom';
+import { mockStoreAdmin } from '../../../../mockStore/mockStore';
 import AppointmentsPage from './appointments.page';
 
 describe('Given Appointments page', () => {
     describe('When we render the page', () => {
-        test('Then it should display "Appointments page"', () => {
+        test('Then it should display "Citar"', () => {
             render(
                 <>
                     <Router>
-                        <AppointmentsPage />
+                        <Provider store={mockStoreAdmin}>
+                            <AppointmentsPage />
+                        </Provider>
                     </Router>
                 </>
             );
-            const element = screen.getByText(/Appointments page/i);
+            const element = screen.getByText(/Citar/i);
             expect(element).toBeInTheDocument();
         });
     });

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 5rem;
+    font-size: xx-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+}
+.header__title {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 10rem;
+    color: black;
+    font-family: Allison, Marck Script, verdana, Arial, Helvetica, sans-serif;
+}
+.header__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
