@@ -13,7 +13,7 @@ import { useUsers } from './useUsers';
 const mockNavigate = jest.fn();
 jest.mock('../../services/user.repository');
 jest.mock('react-router-dom', () => ({
-    ...(jest.requireActual('react-router-dom') as jest.Mock),
+    ...jest.requireActual('react-router-dom'),
     useNavigate: () => mockNavigate,
 }));
 let result: {
