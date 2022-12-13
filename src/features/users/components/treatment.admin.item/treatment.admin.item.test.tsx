@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-
 import { BrowserRouter as Router } from 'react-router-dom';
-import { appStore } from '../../../../infrastructure/store/store';
+import { mockStoreAdmin } from '../../../../infrastructure/mockStore/mockStore';
 import { TreatmentAdminItem } from './treatment.admin.item';
 
 describe('Given TreatmentAdminItem component', () => {
@@ -18,15 +17,14 @@ describe('Given TreatmentAdminItem component', () => {
         test('Then it should display the treatment title', () => {
             render(
                 <Router>
-                    <Provider store={appStore}>
+                    <Provider store={mockStoreAdmin}>
                         <TreatmentAdminItem item={mockTreatment} />
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(/string/i);
+            const element = screen.getByText(/Time/i);
             expect(element).toBeInTheDocument();
-            //falta cubrir esa linea
-            // expect(screen.getByRole('button')).toBeInTheDocument();
+            fireEvent.click(screen.getByRole('button'));
         });
     });
 });

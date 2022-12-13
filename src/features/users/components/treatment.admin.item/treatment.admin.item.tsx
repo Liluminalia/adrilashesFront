@@ -22,13 +22,13 @@ export function TreatmentAdminItem({ item }: { item: TreatmentI }) {
                 <div>
                     <Link to={'/EditTreatment/' + item.id}>✏️</Link>
                 </div>
-                <div
+                <button
                     onClick={() => {
                         handleDeleteTreatment(item);
                     }}
                 >
-                    🗑️
-                </div>
+                    Eliminar tratamiento
+                </button>
             </li>
         </>
     );

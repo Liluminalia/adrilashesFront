@@ -55,7 +55,7 @@ describe('Given TreatmentAdminList component', () => {
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(/tratamientos disponibles/i);
+            const element = screen.getByText(/inicia sesion para pedir cita!/i);
             expect(element).toBeInTheDocument();
         });
     });

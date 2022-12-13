@@ -12,6 +12,8 @@ test('renders Home page link', () => {
             </Provider>
         </Router>
     );
-    const linkElement = screen.getByText(/cuidado estetico facial/i);
+    const linkElement = screen.getByText(
+        /formaciones homologadas y continuadas./i
+    );
     expect(linkElement).toBeInTheDocument();
 });

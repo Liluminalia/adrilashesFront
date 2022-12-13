@@ -15,7 +15,7 @@ describe('Given TreatmentAdminItem component', () => {
             price: 3,
             time: 3,
         };
-        test('Then it should display the treatment title', () => {
+        test('Then it should display "Precio"', () => {
             render(
                 <Router>
                     <Provider store={appStore}>
@@ -23,7 +23,7 @@ describe('Given TreatmentAdminItem component', () => {
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(/string/i);
+            const element = screen.getByText(/Precio/i);
             expect(element).toBeInTheDocument();
         });
     });

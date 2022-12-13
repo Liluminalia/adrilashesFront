@@ -1,12 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import { useTreatments } from '../../../treatments/hooks/useTreatments';
 import { TreatmentI } from '../../../treatments/models/treatments';
 import { TreatmentAdminItem } from '../treatment.admin.item/treatment.admin.item';
 
-export function TreatmentAdminList() {
+export function TreatmentAdminList({ item }: { item: Array<TreatmentI> }) {
     const title = 'Tratamientos';
-    const { treatments } = useTreatments();
 
     return (
         <section className="treatmentlist">
@@ -15,7 +13,7 @@ export function TreatmentAdminList() {
             </div>
             <div className="treatmentlist__container">
                 <ul className="treatmentlist__list">
-                    {treatments.map((item: TreatmentI) => (
+                    {item.map((item: TreatmentI) => (
                         <>
                             <TreatmentAdminItem
                                 key={item.id + 2}

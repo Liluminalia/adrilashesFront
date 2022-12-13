@@ -7,7 +7,7 @@ import HomePage from './home.page';
 
 describe('Given Home page', () => {
     describe('When we render the page', () => {
-        test('Then it should display "tratamientos disponibles"', () => {
+        test('Then it should display "inicia sesion para pedir cita!"', () => {
             render(
                 <>
                     <Router>
@@ -17,7 +17,7 @@ describe('Given Home page', () => {
                     </Router>
                 </>
             );
-            const element = screen.getByText(/tratamientos disponibles/i);
+            const element = screen.getByText(/inicia sesion para pedir cita!/i);
             expect(element).toBeInTheDocument();
         });
     });

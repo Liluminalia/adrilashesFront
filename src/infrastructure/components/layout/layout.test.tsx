@@ -19,7 +19,9 @@ describe('Given Footer component', () => {
                     </Router>
                 </>
             );
-            const element = screen.getByText(/cuidado estetico facial/i);
+            const element = screen.getByText(
+                /formaciones homologadas y continuadas./i
+            );
             expect(element).toBeInTheDocument();
         });
     });

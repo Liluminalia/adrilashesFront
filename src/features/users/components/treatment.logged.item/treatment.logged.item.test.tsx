@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-
 import { BrowserRouter as Router } from 'react-router-dom';
-import { appStore } from '../../../../infrastructure/store/store';
+import { mockStoreAdmin } from '../../../../infrastructure/mockStore/mockStore';
 import { TreatmentLoggedItem } from './treatment.logged.item';
 
 describe('Given TreatmentLoggedItem component', () => {
@@ -18,15 +17,14 @@ describe('Given TreatmentLoggedItem component', () => {
         test('Then it should display the treatment title', () => {
             render(
                 <Router>
-                    <Provider store={appStore}>
+                    <Provider store={mockStoreAdmin}>
                         <TreatmentLoggedItem item={mockTreatment} />
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(/string/i);
+            const element = screen.getByText(/Time/i);
             expect(element).toBeInTheDocument();
-            // falta cubrir esa linea
-            // expect(screen.getByRole('button')).toBeInTheDocument();
+            fireEvent.click(screen.getByRole('button'));
         });
     });
 });

@@ -7,7 +7,7 @@ import MakeAppointmentPage from './make.appointment.page';
 
 describe('Given Make Appointment page', () => {
     describe('When we render the page', () => {
-        test('Then it should display "solicita contacto para la cita"', () => {
+        test('Then it should display "nos llegara una notificacion para darle cita!"', () => {
             render(
                 <>
                     <Router>
@@ -17,7 +17,9 @@ describe('Given Make Appointment page', () => {
                     </Router>
                 </>
             );
-            const element = screen.getByText(/solicita contacto para la cita/i);
+            const element = screen.getByText(
+                /nos llegara una notificacion para darle cita!/i
+            );
             expect(element).toBeInTheDocument();
         });
     });

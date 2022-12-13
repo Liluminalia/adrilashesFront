@@ -5,12 +5,7 @@ export function TreatmentLoggedItem({ item }: { item: TreatmentI }) {
     const { handleAddAppointment } = useUsers();
     return (
         <>
-            <li
-                className="treatmentLogged__item"
-                onClick={() => {
-                    handleAddAppointment(item.id);
-                }}
-            >
+            <li className="treatmentLogged__item">
                 <div className="treatmentLogged__item--img">
                     <img src={item.img} alt={item.title} height="200" />
                 </div>
@@ -21,6 +16,13 @@ export function TreatmentLoggedItem({ item }: { item: TreatmentI }) {
                         </li>
                     </ul>
                 </div>
+                <button
+                    onClick={() => {
+                        handleAddAppointment(item.id);
+                    }}
+                >
+                    quiero cita
+                </button>
             </li>
         </>
     );
