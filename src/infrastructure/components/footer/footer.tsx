@@ -24,6 +24,7 @@ export function Footer() {
                                 src="https://es.seaicons.com/wp-content/uploads/2016/03/Twitter-icon-19.png"
                                 alt="imagen de logo de twitter"
                                 width={35}
+                                height={35}
                             />
                         </a>
                         <a href="https://www.instagram.com/lashes_adrisape/">
@@ -31,6 +32,7 @@ export function Footer() {
                                 src="https://cdn.iconscout.com/icon/free/png-256/instagram-1865894-1581910.png"
                                 alt="imagen de logo de instagram"
                                 width={35}
+                                height={35}
                             />
                         </a>
                         <a href="mailto:adriana-salles@hotmail.com">
@@ -38,6 +40,7 @@ export function Footer() {
                                 src="https://cdn.iconscout.com/icon/free/png-256/gmail-2981844-2476484.png"
                                 alt="imagen de logo de gmail"
                                 width={35}
+                                height={35}
                             />
                         </a>
                     </div>

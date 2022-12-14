@@ -13,6 +13,7 @@ export function TreatmentItem({ item }: { item: TreatmentI }) {
                             src={item.img}
                             alt={item.title}
                             width="300"
+                            height="300"
                         />
                     </Link>
                 </div>

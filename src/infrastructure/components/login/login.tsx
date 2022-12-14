@@ -9,6 +9,7 @@ export function LoginButton() {
                         src="./assets/logo2.png"
                         alt="logo adri lashes"
                         width={200}
+                        height={200}
                     />
                 </Link>
             </section>
