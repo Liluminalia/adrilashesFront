@@ -19,7 +19,10 @@ export function UserItem({ item }: { item: UserI }) {
                                             className={
                                                 styles.appointment__treatment
                                             }
-                                            key={appointment._id.id}
+                                            key={
+                                                Math.random() * 10 +
+                                                appointment._id.id
+                                            }
                                         >
                                             {appointment._id.title} precio:{' '}
                                             {appointment._id.price} duracion:{' '}
