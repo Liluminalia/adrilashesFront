@@ -21,7 +21,7 @@ export function Header() {
                     </Link>
                 </h1>
                 <div className={styles.header__user}>
-                    {user.role === 'admin' && user.isLogged ? (
+                    {user.role === 'admin' && user.isLogged && (
                         <>
                             <nav className={styles.header__nav}>
                                 <ul className={styles.header__fullMenu}>
@@ -47,7 +47,8 @@ export function Header() {
                                 </p>
                             </div>
                         </>
-                    ) : user.isLogged && user.role === 'user' ? (
+                    )}
+                    {user.role === 'user' && user.isLogged && (
                         <>
                             <p className={styles.header__menu2} key={menu2.id}>
                                 <Link
@@ -64,7 +65,8 @@ export function Header() {
                                 </p>
                             </div>
                         </>
-                    ) : (
+                    )}
+                    {!user.isLogged && (
                         <div className={styles.header__login}>
                             <LoginButton />
                         </div>
