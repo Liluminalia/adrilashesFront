@@ -18,7 +18,7 @@ jest.mock('../../../../../../features/treatments/hooks/useTreatments');
 
 describe('Given Edit treatment page', () => {
     describe('When we render the page', () => {
-        test('Then it should display "Edita tu tratamiento"', () => {
+        test('Then it should display "Editar tratamiento"', () => {
             (useTreatments as jest.Mock).mockReturnValue({
                 handleUpdateTreatment: jest.fn(),
                 treatments: [mockTreatment],
@@ -33,7 +33,7 @@ describe('Given Edit treatment page', () => {
                     </Router>
                 </>
             );
-            const element = screen.getByText(/Edita tu tratamiento/i);
+            const element = screen.getByText(/Editar tratamiento/i);
             expect(element).toBeInTheDocument();
             const input = screen.getByPlaceholderText('Time');
             const button = screen.getByRole('button');

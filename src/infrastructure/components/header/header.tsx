@@ -10,6 +10,7 @@ export function Header() {
         { id: '2', path: 'Appointments', label: 'Citas' },
         { id: '3', path: 'Treatments', label: 'Tratamientos' },
     ];
+    const menu2 = { id: '1', path: 'MakeAppointment', label: 'Citas' };
 
     return (
         <>
@@ -20,30 +21,49 @@ export function Header() {
                     </Link>
                 </h1>
                 <div className={styles.header__user}>
-                    {user.role === 'admin' ? (
+                    {user.role === 'admin' && user.isLogged ? (
                         <>
-                            <nav>
-                                <ul>
+                            <nav className={styles.header__nav}>
+                                <ul className={styles.header__fullMenu}>
                                     {menu.map((item) => (
-                                        <li key={item.id}>
-                                            <Link to={item.path}>
+                                        <li
+                                            className={styles.header__menu}
+                                            key={item.id}
+                                        >
+                                            <Link
+                                                className={styles.menu__items}
+                                                to={item.path}
+                                            >
                                                 {item.label}
                                             </Link>
                                         </li>
                                     ))}
                                 </ul>
                             </nav>
+                            <div className={styles.header__logo}>
+                                <LogoutButton />
+                                <p className={styles.user__name}>
+                                    {user.user?.name}
+                                </p>
+                            </div>
                         </>
-                    ) : (
-                        <></>
-                    )}
-                    {user.isLogged ? (
-                        <div className={styles.header__logo}>
-                            <LogoutButton />
-                            <p className={styles.user__name}>
-                                {user.user?.name}
+                    ) : user.isLogged && user.role === 'user' ? (
+                        <>
+                            <p className={styles.header__menu2} key={menu2.id}>
+                                <Link
+                                    className={styles.menu__items}
+                                    to={menu2.path}
+                                >
+                                    {menu2.label}
+                                </Link>
                             </p>
-                        </div>
+                            <div className={styles.header__logo}>
+                                <LogoutButton />
+                                <p className={styles.user__name}>
+                                    {user.user?.name}
+                                </p>
+                            </div>
+                        </>
                     ) : (
                         <div className={styles.header__login}>
                             <LoginButton />

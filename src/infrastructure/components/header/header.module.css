@@ -10,6 +10,32 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
         sans-serif;
 }
+.header__menu {
+    list-style: none;
+}
+.header__menu2 {
+    padding: 0 12rem;
+}
+.header__nav {
+    display: flex;
+    justify-content: center;
+}
+.header__fullMenu {
+    display: flex;
+    justify-content: center;
+    margin: 0 5rem;
+    padding: 0 1rem;
+    flex-direction: row;
+    gap: 2rem;
+}
+.menu__items {
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 2rem;
+    border-radius: 25px;
+    box-shadow: 3px 5px 5px rgb(185, 132, 57);
+    color: black;
+}
 .header__title {
     text-decoration: none;
     font-weight: 800;

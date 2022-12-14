@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
 import { useTreatments } from '../../../../../../features/treatments/hooks/useTreatments';
 import { TreatmentI } from '../../../../../../features/treatments/models/treatments';
-
+import styles from './create.treatment.module.css';
 type formTreatmentData = {
     title: string;
     img: string;
@@ -39,10 +39,13 @@ export function CreateTreatmentPage() {
     };
     return (
         <>
-            <div className="addTreatmentForm">
+            <div className={styles.addTreatment}>
                 <h2>Añadir tratamiento</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="addTreatmentForm__title">
+                <form
+                    className={styles.addTreatmentForm}
+                    onSubmit={handleSubmit}
+                >
+                    <div className={styles.addTreatmentForm__title}>
                         <input
                             type="text"
                             name="title"
@@ -52,7 +55,7 @@ export function CreateTreatmentPage() {
                             required
                         />
                     </div>
-                    <div className="addTreatmentForm__img">
+                    <div className={styles.addTreatmentForm__img}>
                         <input
                             type="img"
                             name="img"
@@ -61,7 +64,7 @@ export function CreateTreatmentPage() {
                             onInput={handleInput}
                         />
                     </div>
-                    <div className="addTreatmentForm__description">
+                    <div className={styles.addTreatmentForm__description}>
                         <input
                             type="text"
                             name="description"
@@ -70,7 +73,7 @@ export function CreateTreatmentPage() {
                             onInput={handleInput}
                         />
                     </div>
-                    <div className="addTreatmentForm__price">
+                    <div className={styles.addTreatmentForm__price}>
                         <input
                             type="number"
                             name="price"
@@ -79,9 +82,8 @@ export function CreateTreatmentPage() {
                             onInput={handleInput}
                             required
                         />
-                        precio
                     </div>
-                    <div className="addTreatmentForm__time">
+                    <div className={styles.addTreatmentForm__time}>
                         <input
                             type="number"
                             name="time"
@@ -90,9 +92,11 @@ export function CreateTreatmentPage() {
                             onInput={handleInput}
                             required
                         />
-                        duracion
                     </div>
-                    <button type="submit" className="addTreatmentForm__button">
+                    <button
+                        type="submit"
+                        className={styles.addTreatmentForm__button}
+                    >
                         Crear tratamiento
                     </button>
                 </form>
