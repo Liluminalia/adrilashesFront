@@ -10,7 +10,7 @@ export function TreatmentLoggedList({ item }: { item: Array<TreatmentI> }) {
                     {item.map((item: TreatmentI) => (
                         <>
                             <TreatmentLoggedItem
-                                key={Math.random() + item.id}
+                                key={item.id + 150}
                                 item={item}
                             ></TreatmentLoggedItem>
                         </>
