@@ -18,7 +18,7 @@ export function TreatmentList() {
                     {treatments.map((item: TreatmentI) => (
                         <>
                             <TreatmentItem
-                                key={Math.random() * 10 + item.id}
+                                key={item.title}
                                 item={item}
                             ></TreatmentItem>
                         </>

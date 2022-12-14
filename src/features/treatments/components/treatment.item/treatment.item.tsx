@@ -7,10 +7,7 @@ export function TreatmentItem({ item }: { item: TreatmentI }) {
         <>
             <li className={styles.treatmentlist__item}>
                 <div>
-                    <Link
-                        to={'/treatments/' + item.id}
-                        key={Math.random() * 10 + item.id}
-                    >
+                    <Link to={'/treatments/' + item.id} key={item.id}>
                         <img
                             className={styles.treatmentlist__item__img}
                             src={item.img}

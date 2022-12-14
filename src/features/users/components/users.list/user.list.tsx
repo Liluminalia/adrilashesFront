@@ -17,7 +17,7 @@ export function UserList({ item }: { item: Array<UserI> }) {
                         item.appointments.length > 0 ? (
                             <>
                                 <UserItem
-                                    key={Math.random() * 10 + item.id}
+                                    key={item.phone}
                                     item={item}
                                 ></UserItem>
                             </>
