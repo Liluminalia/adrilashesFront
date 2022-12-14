@@ -22,6 +22,7 @@ export function TreatmentLoggedItem({ item }: { item: TreatmentI }) {
                         className={styles.treatmentLogged__itemImg}
                         src={item.img}
                         alt={item.title}
+                        width="200"
                         height="200"
                     />
                 </div>

@@ -10,6 +10,7 @@ export function LogoutButton() {
                         src="./assets/favicon3.png"
                         alt="logout adri lashes"
                         width={200}
+                        height={150}
                     />
                 </a>
             </section>
