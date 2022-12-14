@@ -5,6 +5,11 @@ import { LogoutButton } from '../logout/logout';
 import styles from './header.module.css';
 export function Header() {
     const { user } = useUsers();
+    const menu = [
+        { id: '1', path: 'HomeAdmin', label: 'Home' },
+        { id: '2', path: 'Appointments', label: 'Citas' },
+        { id: '3', path: 'Treatments', label: 'Tratamientos' },
+    ];
 
     return (
         <>
@@ -15,6 +20,23 @@ export function Header() {
                     </Link>
                 </h1>
                 <div className={styles.header__user}>
+                    {user.role === 'admin' ? (
+                        <>
+                            <nav>
+                                <ul>
+                                    {menu.map((item) => (
+                                        <li key={item.id}>
+                                            <Link to={item.path}>
+                                                {item.label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </nav>
+                        </>
+                    ) : (
+                        <></>
+                    )}
                     {user.isLogged ? (
                         <div className={styles.header__logo}>
                             <LogoutButton />
