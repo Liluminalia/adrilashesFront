@@ -23,8 +23,8 @@ export function Header() {
                             </p>
                         </div>
                     ) : (
-                        <div>
-                            <LoginButton /> <p> Login</p>
+                        <div className={styles.header__login}>
+                            <LoginButton />
                         </div>
                     )}
                 </div>

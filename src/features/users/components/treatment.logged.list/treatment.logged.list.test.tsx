@@ -21,9 +21,7 @@ describe('Given TreatmentLoggedList component', () => {
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(
-                /nos llegara una notificacion para darle cita!/i
-            );
+            const element = screen.getByText(/quiero cita/i);
             expect(element).toBeInTheDocument();
         });
     });

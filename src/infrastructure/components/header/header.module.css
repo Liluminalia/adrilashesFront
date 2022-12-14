@@ -17,9 +17,26 @@
     color: black;
     font-family: Allison, Marck Script, verdana, Arial, Helvetica, sans-serif;
 }
+.header__user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .header__logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.user__name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 1rem;
+}
+.header__login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 1rem;
 }

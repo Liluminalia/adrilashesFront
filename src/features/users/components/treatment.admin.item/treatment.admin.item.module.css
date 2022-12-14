@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+.infoList__title {
+    list-style: none;
+    font-family: Allison, Marck Script, verdana, Arial, Helvetica, sans-serif;
+    font-size: 4rem;
+}
+.treatmentAdminlist__item {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+}
+.infoList__edit {
+    text-decoration: none;
+    color: rgb(185, 132, 57);
+    padding: 0.4rem 0.5rem;
+    background-color: rgb(50, 48, 48);
+    border-radius: 1rem;
+    font-size: 1.25rem;
+}
+.infoList__delete {
+    text-decoration: none;
+    background-color: rgb(50, 48, 48);
+    color: rgb(185, 132, 57);
+    border-radius: 1rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+}

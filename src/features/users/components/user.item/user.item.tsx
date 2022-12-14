@@ -12,13 +12,18 @@ export function UserItem({ item }: { item: UserI }) {
                             <p className={styles.info__description}>
                                 {item.email} tlf: {item.phone}
                             </p>
-                            <ul className={styles.info__description}>
+                            <ul className={styles.info__appointment}>
                                 {item.appointments.map(
                                     (appointment: Appointment) => (
-                                        <li key={appointment._id.id}>
-                                            tratamiento: {appointment._id.title}
-                                            precio: {appointment._id.price}
-                                            duracion: {appointment._id.time}
+                                        <li
+                                            className={
+                                                styles.appointment__treatment
+                                            }
+                                            key={appointment._id.id}
+                                        >
+                                            {appointment._id.title} precio:{' '}
+                                            {appointment._id.price} duracion:{' '}
+                                            {appointment._id.time}
                                         </li>
                                     )
                                 )}

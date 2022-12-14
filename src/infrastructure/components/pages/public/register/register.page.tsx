@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserRepository } from '../../../../../features/users/services/user.repository';
-
+import styles from './register.page.module.css';
 type formData = {
     name: string;
     email: string;
@@ -34,8 +34,8 @@ export function RegisterPage() {
     };
     return (
         <>
-            <div className="form">
-                <form onSubmit={handleSubmit}>
+            <div>
+                <form className={styles.form} onSubmit={handleSubmit}>
                     <div className="form__name">
                         <input
                             type="text"
@@ -77,7 +77,7 @@ export function RegisterPage() {
                             maxLength={9}
                         />
                     </div>
-                    <button type="submit" className="form__button">
+                    <button type="submit" className={styles.form__send}>
                         Registrarse
                     </button>
                 </form>

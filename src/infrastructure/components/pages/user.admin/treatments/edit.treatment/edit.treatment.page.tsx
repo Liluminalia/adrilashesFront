@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTreatments } from '../../../../../../features/treatments/hooks/useTreatments';
 import { TreatmentI } from '../../../../../../features/treatments/models/treatments';
 
@@ -13,17 +13,23 @@ type formData = {
 
 export function EditTreatmentPage() {
     const { id } = useParams();
-    const { handleUpdateTreatment } = useTreatments();
+
+    console.log(id);
+    const navigate = useNavigate();
+
+    const { handleUpdateTreatment, treatments } = useTreatments();
+    const treatment = treatments.filter((item) => item.id === (id as string));
     const initialState: formData = {
-        title: '',
-        img: '',
-        description: '',
-        price: 0,
-        time: 0,
+        title: treatment[0].title,
+        img: treatment[0].img,
+        description: treatment[0].description,
+        price: treatment[0].price,
+        time: treatment[0].time,
     };
     const [formState, setFormState] = useState(initialState);
     const handleInput = (ev: SyntheticEvent) => {
         const element = ev.target as HTMLFormElement;
+
         setFormState({ ...formState, [element.name]: element.value });
     };
     const handleSubmit = async (ev: SyntheticEvent) => {
@@ -38,6 +44,7 @@ export function EditTreatmentPage() {
             time: formState.time,
         };
         handleUpdateTreatment(editTreatment, id as string);
+        navigate('/Treatments');
     };
     return (
         <>

@@ -1,17 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
-
-.form__container {
+.form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 input {
     background-color: rgb(222, 223, 223);
     border: 0;
     padding: 1rem;
     align-items: center;
-    border: 1px black solid;
 }
 .form__send {
     background-color: rgb(222, 223, 223);

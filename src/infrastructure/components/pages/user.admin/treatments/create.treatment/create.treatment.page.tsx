@@ -40,7 +40,7 @@ export function CreateTreatmentPage() {
     return (
         <>
             <div className="addTreatmentForm">
-                <h2>Añade un tratamiento</h2>
+                <h2>Añadir tratamiento</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="addTreatmentForm__title">
                         <input

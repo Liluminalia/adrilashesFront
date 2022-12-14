@@ -34,8 +34,8 @@ export const useUsers = () => {
     const handleAddAppointment = (treatmentId: string) => {
         repositoryUser
             .addUserAppointment(treatmentId)
-            .then((user: UserI) =>
-                dispatcher(ac.addAppointmentActionCreator(user))
+            .then((user: { user: UserI }) =>
+                dispatcher(ac.addAppointmentActionCreator(user.user))
             );
     };
 

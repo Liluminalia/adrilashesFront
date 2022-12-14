@@ -6,7 +6,7 @@ import { userReducer } from '../../features/users/reducers/user.reducers/reducer
 import { userReducerAdmin } from '../../features/users/reducers/users.list.reducers/reducer.users.list';
 import { RootState } from '../store/store';
 
-export const appointmentMock = {
+export const appointMock = {
     _id: {
         title: 'manicura',
         img: 'string',
@@ -23,25 +23,25 @@ export const appointmentMock = {
     } as TreatmentI,
     discount: 10,
 };
-export const userMockAdmin = {
+export const mockUser = {
     name: 'froilan',
     id: '2',
     role: 'admin' as RoleI,
     isVip: false,
     phone: '666666666',
     email: 'froi@gmail',
-    appointments: [appointmentMock, appointmentMock],
+    appointments: [appointMock],
 };
-export const userMock = {
+export const userMock3 = {
     name: 'amador',
     id: '265',
     role: 'user' as RoleI,
     isVip: true,
     phone: '666666666',
     email: 'centurionchape@gmail',
-    appointments: [appointmentMock],
+    appointments: [appointMock],
 };
-export const treatmentMock = {
+export const mockTreatment = {
     id: '241354',
     title: 'patata',
     img: 'string',
@@ -54,13 +54,13 @@ export const preloadedState: Partial<RootState> = {
         isLogged: true,
         token: 'token',
         isLogging: false,
-        user: userMockAdmin,
+        user: mockUser,
         role: 'admin',
     },
-    Appointments: [userMockAdmin],
-    treatments: [treatmentMock as TreatmentI],
+    Appointments: [mockUser],
+    treatments: [mockTreatment as TreatmentI],
 };
-export const mockStoreAdmin = configureStore({
+export const mockStoreEdit = configureStore({
     reducer: {
         users: userReducer,
         Appointments: userReducerAdmin,

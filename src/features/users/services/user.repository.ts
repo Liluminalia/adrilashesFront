@@ -79,7 +79,7 @@ export class UserRepository implements RepositoryUsers {
                 return error;
             });
     }
-    addUserAppointment(treatmentId: string): Promise<UserI> {
+    addUserAppointment(treatmentId: string): Promise<{ user: UserI }> {
         return fetch(`${this.url}/appointments/add/${treatmentId}`, {
             method: 'PATCH',
             headers: {
