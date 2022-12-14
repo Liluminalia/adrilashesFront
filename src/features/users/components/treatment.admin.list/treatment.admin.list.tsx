@@ -17,7 +17,7 @@ export function TreatmentAdminList({ item }: { item: Array<TreatmentI> }) {
                     {item.map((item: TreatmentI) => (
                         <>
                             <TreatmentAdminItem
-                                key={item.id + 2}
+                                key={item.description}
                                 item={item}
                             ></TreatmentAdminItem>
                         </>

@@ -2,7 +2,7 @@ import { SyntheticEvent, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTreatments } from '../../../../../../features/treatments/hooks/useTreatments';
 import { TreatmentI } from '../../../../../../features/treatments/models/treatments';
-
+import styles from './edit.treatment.module.css';
 type formData = {
     title: string;
     img: string;
@@ -14,7 +14,6 @@ type formData = {
 export function EditTreatmentPage() {
     const { id } = useParams();
 
-    console.log(id);
     const navigate = useNavigate();
 
     const { handleUpdateTreatment, treatments } = useTreatments();
@@ -48,10 +47,15 @@ export function EditTreatmentPage() {
     };
     return (
         <>
-            <div className="editTreatmentForm">
-                <h2>Edita tu tratamiento</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="editTreatmentForm__title">
+            <div className={styles.editTreatment}>
+                <h2 className={styles.editTreatmentTitle}>
+                    Editar tratamiento
+                </h2>
+                <form
+                    className={styles.editTreatmentForm}
+                    onSubmit={handleSubmit}
+                >
+                    <div className={styles.editTreatmentForm__title}>
                         <input
                             type="text"
                             name="title"
@@ -61,7 +65,7 @@ export function EditTreatmentPage() {
                             required
                         />
                     </div>
-                    <div className="editTreatmentForm__img">
+                    <div className={styles.editTreatmentForm__img}>
                         <input
                             type="img"
                             name="img"
@@ -69,7 +73,7 @@ export function EditTreatmentPage() {
                             onInput={handleInput}
                         />
                     </div>
-                    <div className="editTreatmentForm__description">
+                    <div className={styles.editTreatmentForm__description}>
                         <input
                             type="text"
                             name="description"
@@ -78,7 +82,7 @@ export function EditTreatmentPage() {
                             onInput={handleInput}
                         />
                     </div>
-                    <div className="editTreatmentForm__price">
+                    <div className={styles.editTreatmentForm__price}>
                         <input
                             type="number"
                             name="price"
@@ -88,7 +92,7 @@ export function EditTreatmentPage() {
                             required
                         />
                     </div>
-                    <div className="editTreatmentForm__time">
+                    <div className={styles.editTreatmentForm__time}>
                         <input
                             type="number"
                             name="time"
@@ -98,8 +102,11 @@ export function EditTreatmentPage() {
                             required
                         />
                     </div>
-                    <button type="submit" className="editTreatmentForm__button">
-                        Editar tratamiento
+                    <button
+                        type="submit"
+                        className={styles.editTreatmentForm__button}
+                    >
+                        Editar
                     </button>
                 </form>
             </div>

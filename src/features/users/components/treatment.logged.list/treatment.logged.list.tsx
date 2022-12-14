@@ -10,7 +10,7 @@ export function TreatmentLoggedList({ item }: { item: Array<TreatmentI> }) {
                     {item.map((item: TreatmentI) => (
                         <>
                             <TreatmentLoggedItem
-                                key={item.id + 150}
+                                key={item.price.toString()}
                                 item={item}
                             ></TreatmentLoggedItem>
                         </>

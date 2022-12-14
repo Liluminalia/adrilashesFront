@@ -17,7 +17,7 @@ export function UserList({ item }: { item: Array<UserI> }) {
                         item.appointments.length > 0 ? (
                             <>
                                 <UserItem
-                                    key={item.id + 50}
+                                    key={item.phone}
                                     item={item}
                                 ></UserItem>
                             </>

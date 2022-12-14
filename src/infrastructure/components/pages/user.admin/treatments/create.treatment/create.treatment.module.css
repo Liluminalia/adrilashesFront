@@ -1,0 +1,22 @@
+.addTreatment {
+    display: flex;
+    padding-top: 5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.addTreatmentForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.addTreatmentForm__button {
+    text-decoration: none;
+    color: rgb(185, 132, 57);
+    padding: 0.4rem 0.5rem;
+    background-color: rgb(50, 48, 48);
+    border-radius: 1rem;
+    font-size: 1.25rem;
+}
