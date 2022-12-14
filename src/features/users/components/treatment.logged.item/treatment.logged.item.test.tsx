@@ -22,7 +22,7 @@ describe('Given TreatmentLoggedItem component', () => {
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(/Time/i);
+            const element = screen.getByText(/quiero cita/i);
             expect(element).toBeInTheDocument();
             fireEvent.click(screen.getByRole('button'));
         });

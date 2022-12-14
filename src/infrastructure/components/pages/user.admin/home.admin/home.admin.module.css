@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+.homeAdmin__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.homeAdmin__todo {
+    display: flex;
+    flex-direction: row;
+    padding: 0 15rem;
+    justify-content: space-between;
+}
+.homeAdmin__title {
+    font-size: 3rem;
+    padding: 0 15rem;
+    color: rgb(182, 135, 65);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: Marck Script, verdana, Arial, Helvetica, sans-serif;
+}
+.homeAdmin__options {
+    text-decoration: none;
+    color: rgb(182, 135, 65);
+    padding: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: black;
+    border-radius: 30px;
+    font-family: Marck Script, verdana, Arial, Helvetica, sans-serif;
+}

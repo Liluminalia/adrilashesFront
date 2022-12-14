@@ -10,7 +10,7 @@ export interface RepositoryUsers {
         userId: string,
         discount: string
     ) => Promise<UserI>;
-    addUserAppointment: (treatmentId: string) => Promise<UserI>;
+    addUserAppointment: (treatmentId: string) => Promise<{ user: UserI }>;
     deleteUserAppointment: (
         treatmentId: string,
         userId: string

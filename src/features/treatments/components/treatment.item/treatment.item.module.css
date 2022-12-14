@@ -22,6 +22,7 @@
 }
 .treatmentlist__item__img {
     border-radius: 100px;
+    border: 5px rgb(185, 132, 57) solid;
 }
 .info__price {
     display: flex;

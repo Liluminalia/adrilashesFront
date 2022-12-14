@@ -12,7 +12,6 @@ export const useUsersList = () => {
     const users = useAppSelector((state: RootState) => state.Appointments);
     const dispatcher = useAppDispatch();
     const repositoryUser = useMemo(() => new UserRepository(), []);
-    console.log(users, 'hook');
     useEffect(() => {
         repositoryUser
             .getAllUsers()

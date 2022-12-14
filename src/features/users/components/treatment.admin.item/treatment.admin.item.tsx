@@ -1,29 +1,33 @@
 import { Link } from 'react-router-dom';
 import { useTreatments } from '../../../treatments/hooks/useTreatments';
 import { TreatmentI } from '../../../treatments/models/treatments';
-
+import styles from './treatment.admin.item.module.css';
 export function TreatmentAdminItem({ item }: { item: TreatmentI }) {
     const { handleDeleteTreatment } = useTreatments();
     return (
         <>
-            <li className="treatmentAdminlist__item">
-                <div className="treatmentAdminlist__item--info">
-                    <ul className="treatmentAdminlist__item--infolist">
-                        <li className="treatmentAdminlist__item--infolist infolist--name">
-                            {item.title} Precio: {item.price} Duracion:
-                            {item.time}
-                        </li>
+            <li className={styles.treatmentAdminlist__item}>
+                <div className={styles.item__info}>
+                    <ul className={styles.item__infoList}>
+                        <li className={styles.infoList__title}>{item.title}</li>
                     </ul>
                 </div>
                 <div>
-                    <Link to={'/EditTreatment/' + item.id}>✏️</Link>
+                    <Link
+                        className={styles.infoList__edit}
+                        to={'/EditTreatment/' + item.id}
+                    >
+                        {' '}
+                        Editar
+                    </Link>
                 </div>
                 <button
+                    className={styles.infoList__delete}
                     onClick={() => {
                         handleDeleteTreatment(item);
                     }}
                 >
-                    Eliminar tratamiento
+                    Eliminar
                 </button>
             </li>
         </>

@@ -1,3 +1,18 @@
 .userlist__item {
+    list-style: none;
+}
+.item__list {
+    padding: 2rem;
+    background-color: black;
+    border-radius: 2rem;
+}
+.item__info {
     display: flex;
+    flex-direction: column;
+    list-style: none;
+    color: rgb(182, 135, 65);
+}
+.appointment__treatment {
+    list-style: none;
+    line-height: 2rem;
 }

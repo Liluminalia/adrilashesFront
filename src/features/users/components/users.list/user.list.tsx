@@ -2,7 +2,7 @@
 
 import { UserI } from '../../models/users';
 import { UserItem } from '../user.item/user.item';
-
+import styles from './user.list.module.css';
 export function UserList({ item }: { item: Array<UserI> }) {
     const title = 'Citar';
 
@@ -12,7 +12,7 @@ export function UserList({ item }: { item: Array<UserI> }) {
                 <h2 className="userlist__titulo">{title}</h2>
             </div>
             <div className="userlist__container">
-                <ul className="userlist__list">
+                <ul className={styles.userlist__container}>
                     {item.map((item: UserI) =>
                         item.appointments.length > 0 ? (
                             <>
