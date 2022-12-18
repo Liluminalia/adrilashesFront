@@ -5,7 +5,10 @@ export function LogoutButton() {
     return (
         <>
             <section className={styles.logout}>
-                <a href="http://localhost:3000" onClick={handleLogout}>
+                <a
+                    href="https://sarafloresfrontfinalproject202210.netlify.app"
+                    onClick={handleLogout}
+                >
                     <img
                         src="./assets/favicon3.png"
                         alt="logout adri lashes"
