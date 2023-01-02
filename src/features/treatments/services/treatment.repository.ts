@@ -4,7 +4,7 @@ import { RepositoryTreatments } from './repository';
 export class TreatmentRepository implements RepositoryTreatments {
     url: string;
     constructor(url = '') {
-        this.url = 'http://localhost:7700/treatments';
+        this.url = 'https://adrilashes.onrender.com/treatments';
     }
     getAllTreatments(): Promise<{ treatments: Array<TreatmentI> }> {
         return fetch(this.url)

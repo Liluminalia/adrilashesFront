@@ -4,7 +4,7 @@ import { RepositoryUsers } from './repository';
 export class UserRepository implements RepositoryUsers {
     url: string;
     constructor(url = '') {
-        this.url = 'http://localhost:7700/users';
+        this.url = 'https://adrilashes.onrender.com/users';
     }
     getAllUsers(): Promise<{ users: UserI[] }> {
         return fetch(this.url, {
